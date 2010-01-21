@@ -53,7 +53,7 @@
 	}
 	
 	//[context restoreGraphicsState];
-	if (highlightedTexture) {
+	if (highlightedTexture!=nil) {
 		[[NSColor colorWithDeviceRed:1.0 green:0.0 blue:0.0 alpha:0.25] set];
 		[NSBezierPath fillRect:highlightedTexture.frame];
 	}
@@ -113,7 +113,7 @@
 	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	highlightedTexture = [self textureAtPoint:point];
 	if (highlightedTexture==nil) return;
-	if (highlightedTexture != lastHighlightedTexture){
+	if (lastHighlightedTexture!=nil && highlightedTexture != lastHighlightedTexture){
 		[self setNeedsDisplayInRect:lastHighlightedTexture.frame];
 		lastHighlightedTexture = highlightedTexture;
 	}

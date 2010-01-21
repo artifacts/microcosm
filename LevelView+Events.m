@@ -249,8 +249,10 @@
 					
 					spriteToDraw.location = point;
 					spriteToDraw.key = doc.selectedTexture.key;
-//					spriteToDraw.layer = selectedLayer;
-//					spriteToDraw.textureAtlas = [doc.textureAtlasArrayController selection];
+					spriteToDraw.layer = selectedLayer;
+					NSArrayController *controller = doc.textureAtlasArrayController;
+					id atlas = [[controller selection] valueForKey:@"self"];
+					spriteToDraw.textureAtlas = atlas;
 					[sprites addObject:spriteToDraw];
 				}
 				doc.selectedSprite = spriteToDraw;				

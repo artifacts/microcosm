@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0541D0DD10BA25010044DE1D /* LevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0541D0DC10BA25010044DE1D /* LevelView.m */; };
 		0572206010C3101D00404A16 /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572205F10C3101D00404A16 /* Layer.m */; };
+		0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */; };
 		059E387D10C3406300F80D64 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
 		059E389010C3409A00F80D64 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
 		059E395F10C34C7500F80D64 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 059E395E10C34C7500F80D64 /* Level.m */; };
@@ -56,6 +57,8 @@
 		0541D12210BA27C30044DE1D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0572205E10C3101D00404A16 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
 		0572205F10C3101D00404A16 /* Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layer.m; sourceTree = "<group>"; };
+		0580CAEC11076D2A0054A9CE /* ImageToPNGDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToPNGDataTransformer.h; sourceTree = "<group>"; };
+		0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToPNGDataTransformer.m; sourceTree = "<group>"; };
 		059E387C10C3406300F80D64 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = "/Users/mic/Documents/Xcode Projects/BWToolkit/BWToolkitFramework.framework"; sourceTree = "<absolute>"; };
 		059E395D10C34C7500F80D64 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		059E395E10C34C7500F80D64 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 		05F03F0710C47B0900EC70FA /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0580CAEC11076D2A0054A9CE /* ImageToPNGDataTransformer.h */,
+				0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */,
 				05F03F0810C47B1C00EC70FA /* NSColor+Hex.h */,
 				05F03F0910C47B1C00EC70FA /* NSColor+Hex.m */,
 				05F03F7F10C482C700EC70FA /* NumberToColorTransformer.h */,
@@ -324,6 +329,7 @@
 				05F03F8110C482C700EC70FA /* NumberToColorTransformer.m in Sources */,
 				05A7A09B10D6A27C001319E2 /* NSImage+Additions.m in Sources */,
 				05A7A0D010D6A642001319E2 /* LevelView+Events.m in Sources */,
+				0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
