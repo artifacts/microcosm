@@ -10,10 +10,8 @@
 
 
 @interface TextureAtlas : NSManagedObject {
-	NSMutableDictionary *cachedTextures;
+	NSMutableDictionary *_cachedTextures;
 }
-
-@property (nonatomic, retain) NSMutableDictionary *cachedTextures;
 
 - (NSMutableDictionary*)textures;
 

@@ -69,6 +69,9 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldExpandItem:(id)item {
+	if (treeView.isDragging==NO) {
+		[outlineView collapseItem:nil];
+	}
 	id obj = [item representedObject];
 	if ([obj isKindOfClass:[SpriteType class]]) {
 		return [[obj keys] count]>0;
@@ -76,7 +79,6 @@
 		return NO;
 	}	
 }
-
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
 	id obj = [item representedObject];
@@ -220,11 +222,24 @@
 	if ([obj isKindOfClass:[NSString class]]) {
 		height = 64;
 	} else {
-		height = 20
-		;
+		height = 20;
 	}
 	return height;
 }
+
+/*
+- (NSIndexSet*)expandedRowsAwareIndexSetByIndexSet:(NSIndexSet*)aSet {
+	NSMutableIndexSet *resultSet = [NSMutableIndexSet indexSet];
+    NSUInteger current_index = [aSet firstIndex];
+    while (current_index != NSNotFound)
+    {
+		[treeView
+        current_index = [aSet indexGreaterThanIndex: current_index];
+    }
+	return resultSet;
+}
+*/
+
 
 /*
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell *)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {    
@@ -252,6 +267,27 @@
 	}
 	
 	return YES;
+}
+
+- (void)deleteSelectedTextures:(NSNotification*)notif {
+	NSIndexSet *indexSet = [treeView selectedRowIndexes];
+    NSUInteger current_index = [indexSet firstIndex];
+	SpriteType *parent;
+	NSTreeNode *item;
+	NSMutableArray *keys;
+    while (current_index != NSNotFound)
+    {
+		item = [treeView itemAtRow:current_index];
+		NSString *textureKey = [item representedObject];
+		parent = [[item parentNode] representedObject];
+		keys = [NSMutableArray arrayWithArray:parent.keys];
+		if (!keys) continue;
+		[keys removeObject:textureKey];
+		parent.keys = keys;
+		NSLog(@"deleting: %@", [textureKey description]);
+		current_index = [indexSet indexGreaterThanIndex: current_index];
+	}
+	[self invalidateTree];
 }
 
 - (IBAction)outlineViewAction:(id)sender {

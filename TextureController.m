@@ -22,6 +22,7 @@
 
 - (void)awakeFromNib {
 	[imageBrowser setAllowsReordering:YES];
+	[[NSNotificationCenter defaultCenter] addObserver:self	selector:@selector(deleteSelectedTextures:) name:kDeleteSelectedTexturesNotification object:nil];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification

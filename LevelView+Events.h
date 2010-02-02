@@ -18,5 +18,6 @@
 - (IBAction)gridSizeSliderValueChanged:(id)sender;
 - (IBAction)toggleShowGrid:(id)sender;
 - (IBAction)spriteImpactValueChanged:(id)sender;
+- (void)updateSprites:(NSArray*)sprites position:(NSPoint)newLocation mouseOffsets:(CGPoint[])mouseOffsets;
 
 @end

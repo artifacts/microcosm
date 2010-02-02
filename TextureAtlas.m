@@ -11,11 +11,10 @@
 
 @implementation TextureAtlas
 
-@synthesize cachedTextures;
 
 - (NSMutableDictionary*)textures {
-	if ([cachedTextures count] == 0) {
-		self.cachedTextures = [NSMutableDictionary dictionary];
+	if (_cachedTextures==nil || [_cachedTextures count] == 0) {
+		_cachedTextures = [[NSMutableDictionary dictionary] retain];
 		NSImage *sheet = self.spriteSheetImage;
 		NSDictionary *coords = self.coordinates;
 		NSDictionary *framesDict = [coords objectForKey:@"frames"];
@@ -36,11 +35,11 @@
 			[sheet drawInRect:NSMakeRect(0, 0, s.frame.size.width, s.frame.size.height) fromRect:s.frame operation:NSCompositeSourceOver fraction:1.0];
 			[s.img unlockFocus];
 			
-			[cachedTextures setObject:s forKey:frameDictKey];
+			[_cachedTextures setObject:s forKey:frameDictKey];
 			[s release];
 		}
 	}
-	return cachedTextures;
+	return _cachedTextures;
 }
 
 @end
@@ -52,7 +51,7 @@
     [self willChangeValueForKey:@"coordinates"];
     [self setPrimitiveCoordinates:value];
     [self didChangeValueForKey:@"coordinates"];
-	self.cachedTextures = nil;
+	_cachedTextures = nil;
 }
 
 - (void)setName:(NSString *)value 
@@ -60,7 +59,7 @@
     [self willChangeValueForKey:@"name"];
     [self setPrimitiveName:value];
     [self didChangeValueForKey:@"name"];
-	self.cachedTextures = nil;
+	_cachedTextures = nil;
 }
 
 - (void)setSpriteSheetImage:(id)value 
@@ -68,7 +67,7 @@
     [self willChangeValueForKey:@"spriteSheetImage"];
     [self setPrimitiveSpriteSheetImage:value];
     [self didChangeValueForKey:@"spriteSheetImage"];
-	self.cachedTextures = nil;
+	_cachedTextures = nil;
 }
 
 @end

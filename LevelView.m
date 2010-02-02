@@ -14,11 +14,13 @@
 #import "NSColor+Hex.h"
 #import "NSImage+Additions.h"
 
+#define kImageCursorMoveAndDrag @"btMoveAndDrag.png"
+#define kImageCursorDraw @"btDraw.png"
+
 @implementation LevelView
 
 @synthesize trackingArea;
 @synthesize gridSize;
-//@synthesize selectedSprite;
 @synthesize selectedLayer;
 @synthesize drawSelectionRectTimer;
 
@@ -52,28 +54,27 @@
 
 static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 
-// For duplicating Expense entities
 - (IBAction) copy:(id) sender
 {
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
-	NSUInteger count = [doc.selectedSprites count];
+	NSUInteger count = [[doc.selectedSprites arrangedObjects] count];
 	if (count == 0) return;
-
-	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
-//	NSMutableArray *copyStringsArray = [NSMutableArray arrayWithCapacity:count];
 	
-	for (Sprite *sprite in doc.selectedSprites)
+	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
+	//	NSMutableArray *copyStringsArray = [NSMutableArray arrayWithCapacity:count];
+	
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects])
 	{
 		[copyObjectsArray addObject:[sprite dictionaryRepresentation]];
 		NSLog(@"copying sprite: %@", [sprite description]);
-//		[copyStringsArray addObject:[sprite stringDescription]];
+		//		[copyStringsArray addObject:[sprite stringDescription]];
 	}
-		
+	
 	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
 	[generalPasteboard declareTypes:[NSArray arrayWithObjects:SpriteDataPboardType, NSStringPboardType, nil] owner:self];
 	NSData *copyData = [NSKeyedArchiver archivedDataWithRootObject:copyObjectsArray];
 	[generalPasteboard setData:copyData forType:SpriteDataPboardType];
-//	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+	//	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
 }
 
 - (IBAction) paste:(id) sender
@@ -86,11 +87,11 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	
 	NSArray *pastedSpritesArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	NSManagedObjectContext *moc = [doc managedObjectContext];
-//	NSArray *stringArray = [[generalPasteboard stringForType:NSStringPboardType] componentsSeparatedByString:@"\n"];
-//	NSEntityDescription *cats = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
-//	NSString *predString = [NSString stringWithFormat:@"%@ LIKE %%@", @"name"];
+	//	NSArray *stringArray = [[generalPasteboard stringForType:NSStringPboardType] componentsSeparatedByString:@"\n"];
+	//	NSEntityDescription *cats = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
+	//	NSString *predString = [NSString stringWithFormat:@"%@ LIKE %%@", @"name"];
 	int i = 0;
-	[doc.selectedSprites removeAllObjects];
+	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
 	//selectionRect.size = NSMakeSize(0, 0);
 	for (NSDictionary *spriteDictionary in pastedSpritesArray)
 	{
@@ -105,26 +106,26 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 		[sprites addObject:newSprite];
 		[doc.selectedSprites addObject:newSprite];
 		NSLog(@"pasted sprite: %@", [newSprite description]);		
-/*		
-		// create a fetch request to get the category whose title matches the one in the array at the current index
-		NSFetchRequest *req = [[NSFetchRequest alloc] init];
-		// set the entity
-		[req setEntity:cats];
-		// create the predicate
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:predString, [stringArray objectAtIndex:i]];
-		// set the predicate
-		[req setPredicate:predicate];
-		// just in case
-		NSError *error = nil;
-		// execute the request
-		NSArray *fetchResults = [moc executeFetchRequest:req error:&error];
-		// acquire a pointer for the correct category
-		Category *theCat = [fetchResults objectAtIndex:0];
-		// get the expenses set from the category
-		NSMutableSet *aSet = [theCat mutableSetValueForKey:@"expenses"];
-		// now to add the new expense entity to the category
-		[aSet addObject:newExpense];
-*/ 
+		/*		
+		 // create a fetch request to get the category whose title matches the one in the array at the current index
+		 NSFetchRequest *req = [[NSFetchRequest alloc] init];
+		 // set the entity
+		 [req setEntity:cats];
+		 // create the predicate
+		 NSPredicate *predicate = [NSPredicate predicateWithFormat:predString, [stringArray objectAtIndex:i]];
+		 // set the predicate
+		 [req setPredicate:predicate];
+		 // just in case
+		 NSError *error = nil;
+		 // execute the request
+		 NSArray *fetchResults = [moc executeFetchRequest:req error:&error];
+		 // acquire a pointer for the correct category
+		 Category *theCat = [fetchResults objectAtIndex:0];
+		 // get the expenses set from the category
+		 NSMutableSet *aSet = [theCat mutableSetValueForKey:@"expenses"];
+		 // now to add the new expense entity to the category
+		 [aSet addObject:newExpense];
+		 */ 
 		i++;
 	}
 	[self setNeedsDisplay:YES];
@@ -157,61 +158,83 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	}
 }
 
-/*
+- (void)didUndo:(NSNotification*)ntf {
+	[self setNeedsDisplay:YES];
+}
+
 - (void)resetCursorRects
 {
-	if (spriteInteractionPending==YES) {
-		[self addCursorRect:self.frame cursor:[NSCursor openHandCursor]];
-	} else {
-		[self addCursorRect:self.frame cursor:[NSCursor arrowCursor]];
-	}
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	NSCursor *cursor;
+	switch (doc.editMode) {
+		case kEditModeDraw:
+			cursor = [[NSCursor alloc] initWithImage:[NSImage imageNamed:kImageCursorDraw] hotSpot:NSMakePoint(0, 0)];
+			break;
+		case kEditModeMoveAndDrag:
+			cursor = [[NSCursor alloc] initWithImage:[NSImage imageNamed:kImageCursorMoveAndDrag] hotSpot:NSMakePoint(0, 0)];
+			break;
+		case kEditModeSelect:
+			cursor = [NSCursor crosshairCursor];
+			break;			
+	}	
+	[self addCursorRect:[self superview].frame cursor:cursor];
 }
-*/
-
 
 - (void)deleteSprite:(id)sender {
-	NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
+	//	NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
-	[sprites removeObject:doc.selectedSprite];
-	[selectedLayer setValue:sprites forKey:@"sprites"];
-	doc.selectedSprite = nil;
-	[self setNeedsDisplay:YES];	
+	for (NSManagedObject *selectedSprite in [doc.selectedSprites arrangedObjects]) {
+		[doc.managedObjectContext deleteObject:selectedSprite];
+	}
+	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
+	[self setNeedsDisplay:YES];
+	//	NSError *err = nil;
+	/*	[doc.managedObjectContext save:&err];
+	 if (err!=nil) {
+	 NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Internal error!", @"Internal error!") 
+	 defaultButton:NSLocalizedString(@"Ok", @"Ok Button") 
+	 alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"Failed to delete sprite. Save your work and quit. Please consider sending a mail to the author.", "Failed to delete sprite alert (internal error)")];
+	 [alert beginSheetModalForWindow:[self window]
+	 modalDelegate:self
+	 didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+	 contextInfo:NULL];
+	 }*/
 }
 
 - (Sprite*)spriteAtPosition:(NSPoint)aPoint
 {
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
-//	NSManagedObjectContext *moc = [doc managedObjectContext]; 
-
-//	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Sprite" inManagedObjectContext:moc]; 	
-//	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease]; 
-//	[request setEntity:entityDescription];
-//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-//							  @"(layer=%@) AND (x >= %@) AND (x+width <= %@) AND (y >= %@) AND (y+height <= %@)", 
-//							  selectedLayer, 
-//							  [NSNumber numberWithFloat:aPoint.x], 
-//							  [NSNumber numberWithFloat:aPoint.x], 
-//							  [NSNumber numberWithFloat:aPoint.y], 
-//							  [NSNumber numberWithFloat:aPoint.y]]; 
-//	[request setPredicate:predicate];
+	//	NSManagedObjectContext *moc = [doc managedObjectContext]; 
 	
-//	NSError *error; 
-//	NSArray *array = [moc executeFetchRequest:request error:&error]; 
-//	if (error || [array count] == 0) {
-//		NSLog(@"Error getting sprite at position (%f, %f)"); //: %@", aPoint.x, aPoint.y, [error description]);
-//		return nil;
-//	}
-//	return (Sprite*)[array objectAtIndex:0];
+	//	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Sprite" inManagedObjectContext:moc]; 	
+	//	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease]; 
+	//	[request setEntity:entityDescription];
+	//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+	//							  @"(layer=%@) AND (x >= %@) AND (x+width <= %@) AND (y >= %@) AND (y+height <= %@)", 
+	//							  selectedLayer, 
+	//							  [NSNumber numberWithFloat:aPoint.x], 
+	//							  [NSNumber numberWithFloat:aPoint.x], 
+	//							  [NSNumber numberWithFloat:aPoint.y], 
+	//							  [NSNumber numberWithFloat:aPoint.y]]; 
+	//	[request setPredicate:predicate];
 	
-//	for (Layer *layer in [doc.layerArrayController arrangedObjects]) {
-		if ([selectedLayer.visibleInEditor boolValue]==NO) return nil;
-		NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
-		Texture *sdef = nil;
-		for (Sprite *s in sprites) {
-			sdef = [[doc allTextures] objectForKey:s.key];
-			if (NSPointInRect(aPoint, NSMakeRect(s.location.x, s.location.y, sdef.frame.size.width, sdef.frame.size.height))) return s;
-		}
-//	}
+	//	NSError *error; 
+	//	NSArray *array = [moc executeFetchRequest:request error:&error]; 
+	//	if (error || [array count] == 0) {
+	//		NSLog(@"Error getting sprite at position (%f, %f)"); //: %@", aPoint.x, aPoint.y, [error description]);
+	//		return nil;
+	//	}
+	//	return (Sprite*)[array objectAtIndex:0];
+	
+	//	for (Layer *layer in [doc.layerArrayController arrangedObjects]) {
+	if ([selectedLayer.visibleInEditor boolValue]==NO) return nil;
+	NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
+	Texture *sdef = nil;
+	for (Sprite *s in sprites) {
+		sdef = [[doc allTextures] objectForKey:s.key];
+		if (NSPointInRect(aPoint, NSMakeRect(s.location.x, s.location.y, sdef.frame.size.width, sdef.frame.size.height))) return s;
+	}
+	//	}
 	return nil;
 }
 
@@ -224,7 +247,7 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	Texture *sdef = nil;
 	for (Sprite *s in sprites) {
 		sdef = [[doc allTextures] objectForKey:s.key];
-		if (NSIntersectsRect(drawableSelectionRect, NSMakeRect(s.location.x, s.location.y, sdef.frame.size.width, sdef.frame.size.height))) {
+		if (NSIntersectsRect([self absRect:rect], NSMakeRect(s.location.x, s.location.y, sdef.frame.size.width, sdef.frame.size.height))) {
 			[result addObject:s];
 		}
 	}
@@ -234,14 +257,14 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 - (void)drawRect:(NSRect)dirtyRect {
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];	
 	NSArray *layers =  [doc.layerArrayController arrangedObjects];// [selectedLevel valueForKey:@"layers"];
-//	CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+	//	CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
 	[NSBezierPath setDefaultLineWidth:0.5];
 	if ([layers count]==0 && !selectedLayer) {
 		[HEXCOLOR(0x66666666) set];		
 		[NSBezierPath fillRect:dirtyRect];
 		return;
 	}	
-
+	
 	Level *level = [doc.levelArrayController selection];
 	NSNumber *colorAsNumber = [level valueForKey:@"bgColor"];
 	if ([colorAsNumber respondsToSelector:@selector(unsignedIntegerValue)]) {
@@ -279,17 +302,17 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 			if ([[[level valueForKey:@"Game"] valueForKey:@"showBoundsInEditor"] boolValue]) {
 				if ([s.impact intValue]>0) {
 					[[NSString stringWithFormat:@"+%d", [s.impact intValue]] 
-									drawAtPoint:NSMakePoint(s.location.x, s.location.y + sdef.frame.size.height + 2)
-								withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont systemFontOfSize:6.0], NSFontNameAttribute, [NSColor greenColor], NSForegroundColorAttributeName, nil]];
+					 drawAtPoint:NSMakePoint(s.location.x, s.location.y + sdef.frame.size.height + 2)
+					 withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont systemFontOfSize:6.0], NSFontNameAttribute, [NSColor greenColor], NSForegroundColorAttributeName, nil]];
 				} else if ([s.impact intValue]<0) {
 					[[NSString stringWithFormat:@"%d", [s.impact intValue]] 
-									drawAtPoint:NSMakePoint(s.location.x, s.location.y + sdef.frame.size.height + 2)
-								withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont systemFontOfSize:6.0], NSFontNameAttribute, [NSColor redColor], NSForegroundColorAttributeName, nil]];
+					 drawAtPoint:NSMakePoint(s.location.x, s.location.y + sdef.frame.size.height + 2)
+					 withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont systemFontOfSize:6.0], NSFontNameAttribute, [NSColor redColor], NSForegroundColorAttributeName, nil]];
 				}
 			}					
 			
-			if ([[[level valueForKey:@"Game"] valueForKey:@"showBoundsInEditor"] boolValue] || s==doc.selectedSprite) {
-				if (s==doc.selectedSprite || [doc.selectedSprites containsObject:s]) {
+			if ([[[level valueForKey:@"Game"] valueForKey:@"showBoundsInEditor"] boolValue] || [[doc.selectedSprites arrangedObjects] containsObject:s]) {
+				if ([[doc.selectedSprites arrangedObjects] containsObject:s]) {
 					[[NSColor colorWithDeviceRed:52.0f/255.0f green:132.0f/255.0f blue:246.0f/255.0f alpha:alpha] set];
 				} else {
 					[[NSColor colorWithDeviceRed:1.0f green:0.0f blue:0.0f alpha:alpha] set];
@@ -318,7 +341,7 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	
     lineDash[0] = 10.0;
     lineDash[1] = 10.0;
-
+	
 	NSBezierPath *thePath = [NSBezierPath bezierPath];
 	[thePath setLineDash:lineDash count:2 phase:selectionRectPhase];
 	[thePath setLineWidth:0.75];
@@ -380,5 +403,18 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 		}
 	}	
 }
+
+- (NSRect)absRect:(NSRect)rect {
+	if (rect.size.width<0) {
+		rect.size.width *= -1;
+		rect.origin.x -= rect.size.width;
+	}
+	if (rect.size.height<0) {
+		rect.size.height *= -1;
+		rect.origin.y -= rect.size.height;
+	}
+	return rect;
+}
+
 
 @end

@@ -18,17 +18,18 @@
 
 @synthesize levelArrayController;
 @synthesize layerArrayController;
+@synthesize spriteArrayController;
 @synthesize textureAtlasArrayController;
 @synthesize volatileTextures;
 @synthesize selectedTexture;
 @synthesize infoButton;
-@synthesize selectedSprite;
 @synthesize selectedSprites;
 @synthesize infoHUD;
 @synthesize volatileTextureToAtlasNameMap;
 @synthesize layerTableView;
 @synthesize showGridCheckbox;
 @synthesize game;
+@synthesize editMode;
 
 - (id)init 
 {
@@ -119,7 +120,9 @@
 	[layerTableView registerForDraggedTypes:[NSArray arrayWithObjects:LayerItemsDropType, nil]];
 	[levelView setNeedsDisplay:YES];
 	[[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
-	self.selectedSprites = [NSMutableArray array];
+	[[NSNotificationCenter defaultCenter] addObserver:levelView selector:@selector(didUndo:) name:NSUndoManagerDidUndoChangeNotification object:nil];
+	
+//	self.selectedSprites = [[SpriteBuffer alloc] init];
 }
 
 - (NSString *)windowNibName 
@@ -127,14 +130,10 @@
     return @"GameEditor";
 }
 
-- (IBAction)toggleDrawer:(id)sender 
-{ 
-    if([sender state] == 1) 
-    { 
+- (IBAction)toggleDrawer:(id)sender { 
+    if([sender state] == 1) { 
 		[drawer openOnEdge:NSMinXEdge];
-    } 
-    else
-    { 
+    } else { 
         [drawer close]; 
     } 
 } 
@@ -298,67 +297,6 @@
 	}
 	
 	return currentViewPosition;
-}
-- (IBAction)openSpriteSheetAction:(id)sender {	
-	// "Standard" open file panel
-	NSArray *fileTypes = [NSArray arrayWithObjects:@"jpg", @"gif",
-						  @"png",	@"psd", @"tga", nil];
-	
-	int i;
-	// Create the File Open Panel class.
-	NSOpenPanel* oPanel = [NSOpenPanel openPanel];
-	
-	[oPanel setCanChooseDirectories:NO];
-	[oPanel setCanChooseFiles:YES];
-	[oPanel setCanCreateDirectories:YES];
-	[oPanel setAllowsMultipleSelection:NO];
-	[oPanel setAlphaValue:0.95];
-	[oPanel setTitle:@"Select spritesheet image"];
-	
-	if ( [oPanel runModalForDirectory:nil file:nil types:fileTypes] == NSOKButton )
-	{
-		// Get an array containing the full filenames of all
-		// files and directories selected.
-		NSArray* files = [oPanel filenames];
-		
-		// Loop through all the files and process them.
-		for( i = 0; i < [files count]; i++ )
-		{
-			NSString* fileName = [files objectAtIndex:i];
-			NSImage *img = [[NSImage alloc] initWithContentsOfFile:fileName];
-			
-			NSManagedObject *selectedSpriteDef = [textureAtlasArrayController selection];
-			[selectedSpriteDef setValue:img forKey:@"spriteSheetImage"];
-		}
-	}
-}
-
-- (IBAction)openCoordsAction:(id)sender {	
-	// "Standard" open file panel
-	NSArray *fileTypes = [NSArray arrayWithObjects:@"plist", nil];
-	
-	int i;
-	// Create the File Open Panel class.
-	NSOpenPanel* oPanel = [NSOpenPanel openPanel];
-	
-	[oPanel setCanChooseDirectories:NO];
-	[oPanel setCanChooseFiles:YES];
-	[oPanel setCanCreateDirectories:YES];
-	[oPanel setAllowsMultipleSelection:NO];
-	[oPanel setAlphaValue:0.95];
-	[oPanel setTitle:@"Select coordinates (.plist) file"];
-	
-	if ( [oPanel runModalForDirectory:nil file:nil types:fileTypes] == NSOKButton )
-	{
-		NSArray* files = [oPanel filenames];		
-		for( i = 0; i < [files count]; i++ )
-		{
-			NSString* fileName = [files objectAtIndex:i];
-			NSManagedObject *selectedSpriteDef = [textureAtlasArrayController selection];
-			NSDictionary *coords = [NSDictionary dictionaryWithContentsOfFile:fileName];
-			[selectedSpriteDef setValue:coords forKey:@"coordinates"];
-		}
-	}
 }
 
 

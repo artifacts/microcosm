@@ -42,5 +42,6 @@
 - (void)deleteSprite:(id)sender;
 - (void)drawSelectionRect;
 - (NSMutableArray*)spritesInRect:(NSRect)rect;
+- (NSRect)absRect:(NSRect)rect;
 
 @end

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 #import "Texture.h"
+#import "SpriteTypeTreeView.h"
 
 @interface TextureController : NSViewController {
 	NSArrayController *textureArrayController;
@@ -16,14 +17,14 @@
 	NSTreeController *spriteTypeTreeController;
     IBOutlet IKImageBrowserView * imageBrowser;
     NSTabView *spriteTypeTabView;
-	NSOutlineView *treeView;
+	SpriteTypeTreeView *treeView;
 	NSTreeNode *rootTreeNode;
 }
 
 @property (nonatomic, retain) IBOutlet NSArrayController *textureArrayController;
 @property (nonatomic, retain) IBOutlet NSArrayController *textureAtlasArrayController;
 @property (nonatomic, retain) IBOutlet NSTabView *spriteTypeTabView;
-@property (nonatomic, retain) IBOutlet NSOutlineView *treeView;
+@property (nonatomic, retain) IBOutlet SpriteTypeTreeView *treeView;
 @property (nonatomic, retain) IBOutlet NSTreeController *spriteTypeTreeController;
 @property (nonatomic, retain) NSTreeNode *rootTreeNode;
 

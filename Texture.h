@@ -11,7 +11,7 @@
 
 
 
-@interface Texture : NSObject {
+@interface Texture : NSObject <NSCoding> {
 	NSRect frame;
 	NSString *key;
 	NSImage *img;

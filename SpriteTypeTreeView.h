@@ -10,7 +10,9 @@
 
 
 @interface SpriteTypeTreeView : NSOutlineView {
-
+	BOOL isDragging;
 }
+
+@property (nonatomic, assign) BOOL isDragging;
 
 @end

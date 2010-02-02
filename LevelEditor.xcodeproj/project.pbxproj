@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050CE18A111302500031ED86 /* SpriteTypeTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE189111302500031ED86 /* SpriteTypeTreeView.m */; };
+		050CE1AB111304800031ED86 /* TextureController+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE1AA111304800031ED86 /* TextureController+Tree.m */; };
+		050CE204111309FD0031ED86 /* SimpleNodeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE203111309FD0031ED86 /* SimpleNodeData.m */; };
+		050CE20711130AD50031ED86 /* SpriteType.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE20611130AD50031ED86 /* SpriteType.m */; };
+		050CE8D11115BABE0031ED86 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */; };
+		050E8CF411102B0E00162A44 /* TextureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8CF311102B0E00162A44 /* TextureController.m */; };
+		050E8E421110AABC00162A44 /* TextureController+Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8E411110AABC00162A44 /* TextureController+Browser.m */; };
+		050E8F261110F59300162A44 /* EditModeAwareCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8F251110F59300162A44 /* EditModeAwareCursor.m */; };
+		05310930110F528E00DEB1DF /* btDraw.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092E110F528E00DEB1DF /* btDraw.png */; };
+		05310931110F528E00DEB1DF /* btMoveAndDrag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092F110F528E00DEB1DF /* btMoveAndDrag.png */; };
+		05310948110F5FF300DEB1DF /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05310947110F5FF300DEB1DF /* LevelViewController.m */; };
+		05310972110F95CF00DEB1DF /* btSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 05310971110F95CF00DEB1DF /* btSelect.png */; };
 		0541D0DD10BA25010044DE1D /* LevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0541D0DC10BA25010044DE1D /* LevelView.m */; };
 		0572206010C3101D00404A16 /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572205F10C3101D00404A16 /* Layer.m */; };
 		0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */; };
@@ -52,6 +64,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		050CE188111302500031ED86 /* SpriteTypeTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteTypeTreeView.h; sourceTree = "<group>"; };
+		050CE189111302500031ED86 /* SpriteTypeTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteTypeTreeView.m; sourceTree = "<group>"; };
+		050CE1A9111304800031ED86 /* TextureController+Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextureController+Tree.h"; sourceTree = "<group>"; };
+		050CE1AA111304800031ED86 /* TextureController+Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextureController+Tree.m"; sourceTree = "<group>"; };
+		050CE202111309FD0031ED86 /* SimpleNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNodeData.h; sourceTree = "<group>"; };
+		050CE203111309FD0031ED86 /* SimpleNodeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNodeData.m; sourceTree = "<group>"; };
+		050CE20511130AD50031ED86 /* SpriteType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteType.h; sourceTree = "<group>"; };
+		050CE20611130AD50031ED86 /* SpriteType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteType.m; sourceTree = "<group>"; };
+		050CE8CF1115BABE0031ED86 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		050E8CF211102B0E00162A44 /* TextureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureController.h; sourceTree = "<group>"; };
+		050E8CF311102B0E00162A44 /* TextureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureController.m; sourceTree = "<group>"; };
+		050E8E401110AABC00162A44 /* TextureController+Browser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextureController+Browser.h"; sourceTree = "<group>"; };
+		050E8E411110AABC00162A44 /* TextureController+Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextureController+Browser.m"; sourceTree = "<group>"; };
+		050E8F241110F59300162A44 /* EditModeAwareCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditModeAwareCursor.h; sourceTree = "<group>"; };
+		050E8F251110F59300162A44 /* EditModeAwareCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditModeAwareCursor.m; sourceTree = "<group>"; };
+		0531092E110F528E00DEB1DF /* btDraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btDraw.png; path = Resources/btDraw.png; sourceTree = "<group>"; };
+		0531092F110F528E00DEB1DF /* btMoveAndDrag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btMoveAndDrag.png; path = Resources/btMoveAndDrag.png; sourceTree = "<group>"; };
+		05310946110F5FF300DEB1DF /* LevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelViewController.h; sourceTree = "<group>"; };
+		05310947110F5FF300DEB1DF /* LevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelViewController.m; sourceTree = "<group>"; };
+		05310971110F95CF00DEB1DF /* btSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btSelect.png; path = Resources/btSelect.png; sourceTree = "<group>"; };
 		0541D0DB10BA25010044DE1D /* LevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelView.h; sourceTree = "<group>"; };
 		0541D0DC10BA25010044DE1D /* LevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelView.m; sourceTree = "<group>"; };
 		0541D12210BA27C30044DE1D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -120,6 +153,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05310944110F5FB300DEB1DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				050CE8CF1115BABE0031ED86 /* ImageAndTextCell.h */,
+				050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */,
+				0541D0DB10BA25010044DE1D /* LevelView.h */,
+				0541D0DC10BA25010044DE1D /* LevelView.m */,
+				05A7A0CE10D6A642001319E2 /* LevelView+Events.h */,
+				05A7A0CF10D6A642001319E2 /* LevelView+Events.m */,
+				050E8F241110F59300162A44 /* EditModeAwareCursor.h */,
+				050E8F251110F59300162A44 /* EditModeAwareCursor.m */,
+				050CE188111302500031ED86 /* SpriteTypeTreeView.h */,
+				050CE189111302500031ED86 /* SpriteTypeTreeView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		05310945110F5FBC00DEB1DF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05310946110F5FF300DEB1DF /* LevelViewController.h */,
+				05310947110F5FF300DEB1DF /* LevelViewController.m */,
+				050E8CF211102B0E00162A44 /* TextureController.h */,
+				050E8CF311102B0E00162A44 /* TextureController.m */,
+				050E8E401110AABC00162A44 /* TextureController+Browser.h */,
+				050E8E411110AABC00162A44 /* TextureController+Browser.m */,
+				050CE1A9111304800031ED86 /* TextureController+Tree.h */,
+				050CE1AA111304800031ED86 /* TextureController+Tree.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		05F03F0710C47B0900EC70FA /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +245,10 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				050CE202111309FD0031ED86 /* SimpleNodeData.h */,
+				050CE203111309FD0031ED86 /* SimpleNodeData.m */,
+				05310945110F5FBC00DEB1DF /* Controller */,
+				05310944110F5FB300DEB1DF /* View */,
 				05F03F0710C47B0900EC70FA /* Util */,
 				05A9061110BC56F8002F616A /* Model.h */,
 				05A9061210BC56F8002F616A /* Model.m */,
@@ -187,10 +256,6 @@
 				2A37F4ACFDCFA73011CA2CEA /* AFGameEditor.m */,
 				05AF3D9910B745FD00650F15 /* TextureAtlasView.h */,
 				05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */,
-				0541D0DB10BA25010044DE1D /* LevelView.h */,
-				0541D0DC10BA25010044DE1D /* LevelView.m */,
-				05A7A0CE10D6A642001319E2 /* LevelView+Events.h */,
-				05A7A0CF10D6A642001319E2 /* LevelView+Events.m */,
 				05A9061410BC6615002F616A /* Sprite.h */,
 				05A9061510BC6615002F616A /* Sprite.m */,
 				05CBB01310BDF07D00A57EEB /* Texture.h */,
@@ -207,6 +272,8 @@
 				05F03DAC10C4486900EC70FA /* AFGameEditor+LayerManagement.m */,
 				05F03EE710C46F3B00EC70FA /* Game.h */,
 				05F03EE810C46F3B00EC70FA /* Game.m */,
+				050CE20511130AD50031ED86 /* SpriteType.h */,
+				050CE20611130AD50031ED86 /* SpriteType.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -223,6 +290,9 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05310971110F95CF00DEB1DF /* btSelect.png */,
+				0531092E110F528E00DEB1DF /* btDraw.png */,
+				0531092F110F528E00DEB1DF /* btMoveAndDrag.png */,
 				05CBB21210BEAF9E00A57EEB /* gridicon.png */,
 				05FD1EDA10B9528500761E42 /* Icon.icns */,
 				2F7446A70DB6BCF400F9684A /* MainMenu.xib */,
@@ -301,6 +371,9 @@
 				2F7446AC0DB6BCF400F9684A /* GameEditor.xib in Resources */,
 				05FD1EDB10B9528500761E42 /* Icon.icns in Resources */,
 				05CBB21310BEAF9E00A57EEB /* gridicon.png in Resources */,
+				05310930110F528E00DEB1DF /* btDraw.png in Resources */,
+				05310931110F528E00DEB1DF /* btMoveAndDrag.png in Resources */,
+				05310972110F95CF00DEB1DF /* btSelect.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +403,15 @@
 				05A7A09B10D6A27C001319E2 /* NSImage+Additions.m in Sources */,
 				05A7A0D010D6A642001319E2 /* LevelView+Events.m in Sources */,
 				0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */,
+				05310948110F5FF300DEB1DF /* LevelViewController.m in Sources */,
+				050E8CF411102B0E00162A44 /* TextureController.m in Sources */,
+				050E8E421110AABC00162A44 /* TextureController+Browser.m in Sources */,
+				050E8F261110F59300162A44 /* EditModeAwareCursor.m in Sources */,
+				050CE18A111302500031ED86 /* SpriteTypeTreeView.m in Sources */,
+				050CE1AB111304800031ED86 /* TextureController+Tree.m in Sources */,
+				050CE204111309FD0031ED86 /* SimpleNodeData.m in Sources */,
+				050CE20711130AD50031ED86 /* SpriteType.m in Sources */,
+				050CE8D11115BABE0031ED86 /* ImageAndTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

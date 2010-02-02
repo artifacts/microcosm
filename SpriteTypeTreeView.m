@@ -13,6 +13,8 @@
 
 @implementation SpriteTypeTreeView
 
+@synthesize isDragging;
+
 - (id)initWithCoder:(NSCoder *)coder
 {
     /*------------------------------------------------------
@@ -24,13 +26,25 @@
     }
     return self;
 }
-/*
+
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
 	NSLog(@"draggingEntered");
+	isDragging = YES;
 	return NSDragOperationLink;
 }
 
+- (void)draggingExited:(id <NSDraggingInfo>)sender {
+	isDragging = NO;
+	NSLog(@"draggingExited");
+}
+
+- (void)draggingEnded:(id <NSDraggingInfo>)sender {
+	isDragging = NO;
+	NSLog(@"draggingEnded");
+}
+
+/*
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     NSPasteboard *pboard;
     NSDragOperation sourceDragMask;
@@ -57,6 +71,24 @@
     return YES;
 }
 */
+
+-(void)keyDown:(NSEvent *)theEvent
+{
+	NSLog(@"SpriteTypeTreeView: keyDown: %c", [[theEvent characters] characterAtIndex:0]);
+	
+	unichar key = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+	
+	if (key == NSDeleteCharacter || key == NSBackspaceCharacter)
+	{
+		NSLog(@"NSDeleteCharacter or NSBackspaceCharacter pressed");
+//		NSLog(@"indexSet: %@", [indexSet description]);
+		[[NSNotificationCenter defaultCenter] postNotificationName:kDeleteSelectedTexturesNotification object:self];
+		return;
+	}
+    
+	[super keyDown:theEvent];
+}
+
 - (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender
 {
     /*------------------------------------------------------

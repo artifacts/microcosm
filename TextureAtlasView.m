@@ -113,7 +113,7 @@
 	NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	highlightedTexture = [self textureAtPoint:point];
 	if (highlightedTexture==nil) return;
-	if (lastHighlightedTexture!=nil && highlightedTexture != lastHighlightedTexture){
+	if (lastHighlightedTexture!=nil && highlightedTexture != lastHighlightedTexture)  {
 		[self setNeedsDisplayInRect:lastHighlightedTexture.frame];
 		lastHighlightedTexture = highlightedTexture;
 	}

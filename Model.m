@@ -7,6 +7,8 @@
 
 #import "Model.h"
 
+NSString *TextureTypePboardType = @"TextureTypePboardType";
+
 @implementation Model
 
 @synthesize currentSpriteDefinition;
@@ -35,6 +37,12 @@ static Model *sharedModelInstance = nil;
 		}
 	}
 	return sharedModelInstance;
+}
+
++ (AFGameEditor*)currentDocumentForView:(NSView*)sender {
+//	return (AFGameEditor*)[[[sender window] windowController] document];
+	NSAssert(0, @"todo");
+	return nil;
 }
 
 // ---------------------------------------------------------------
