@@ -25,6 +25,7 @@
 	NSRect drawableSelectionRect;
 //	BOOL isSpanningSelectionRect;
 //	CGPoint lastMouseDownLocation;
+	BOOL userHoldingCommandKey;
 }
 
 @property (nonatomic, retain) NSTrackingArea *trackingArea;

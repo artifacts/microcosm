@@ -113,6 +113,31 @@
 }
 */
 
+- (BOOL)configurePersistentStoreCoordinatorForURL:(NSURL*)url 
+										   ofType:(NSString*)fileType
+							   modelConfiguration:(NSString*)configuration
+									 storeOptions:(NSDictionary*)storeOptions
+											error:(NSError**)error
+{
+	NSMutableDictionary *options = nil;
+	if (storeOptions != nil) {
+		options = [storeOptions mutableCopy];
+	} else {
+		options = [[NSMutableDictionary alloc] init];
+	}
+	
+	[options setObject:[NSNumber numberWithBool:YES] 
+				forKey:NSMigratePersistentStoresAutomaticallyOption];
+	
+	BOOL result = [super configurePersistentStoreCoordinatorForURL:url
+															ofType:fileType
+												modelConfiguration:configuration
+													  storeOptions:options
+															 error:error];
+	[options release], options = nil;
+	return result;
+}
+
 - (void)awakeFromNib {
 	[drawer openOnEdge:NSMinXEdge];
 	self.volatileTextureToAtlasNameMap = [NSMutableDictionary dictionary];
@@ -299,5 +324,58 @@
 	return currentViewPosition;
 }
 
+- (NSError *)willPresentError:(NSError *)inError {
+	
+    // The error is a Core Data validation error if its domain is
+    // NSCocoaErrorDomain and it is between the minimum and maximum
+    // for Core Data validation error codes.
+	
+    if (!([[inError domain] isEqualToString:NSCocoaErrorDomain])) {
+        return inError;
+    }
+	
+    NSInteger errorCode = [inError code];
+    if ((errorCode < NSValidationErrorMinimum) ||
+		(errorCode > NSValidationErrorMaximum)) {
+        return inError;
+    }
+	
+    // If there are multiple validation errors, inError is an
+    // NSValidationMultipleErrorsError. If it's not, return it
+	
+    if (errorCode != NSValidationMultipleErrorsError) {
+        return inError;
+    }
+	
+    // For an NSValidationMultipleErrorsError, the original errors
+    // are in an array in the userInfo dictionary for key NSDetailedErrorsKey
+    NSArray *detailedErrors = [[inError userInfo] objectForKey:NSDetailedErrorsKey];
+	
+    // For this example, only present error messages for up to 3 validation errors at a time.
+	
+    unsigned numErrors = [detailedErrors count];
+    NSMutableString *errorString = [NSMutableString stringWithFormat:@"%u validation errors have occurred", numErrors];
+	
+    if (numErrors > 3) {
+        [errorString appendFormat:@".\nThe first 3 are:\n"];
+    }
+    else {
+        [errorString appendFormat:@":\n"];
+    }
+    NSUInteger i, displayErrors = numErrors > 3 ? 3 : numErrors;
+    for (i = 0; i < displayErrors; i++) {
+        [errorString appendFormat:@"%@\n",
+		 [[detailedErrors objectAtIndex:i] localizedDescription]];
+    }
+	
+    // Create a new error with the new userInfo
+    NSMutableDictionary *newUserInfo = [NSMutableDictionary
+										dictionaryWithDictionary:[inError userInfo]];
+    [newUserInfo setObject:errorString forKey:NSLocalizedDescriptionKey];
+	
+    NSError *newError = [NSError errorWithDomain:[inError domain] code:[inError code] userInfo:newUserInfo];
+	
+    return newError;
+}
 
 @end

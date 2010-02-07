@@ -77,6 +77,44 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	//	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
 }
 
+
+- (IBAction) cut:(id) sender
+{
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	NSUInteger count = [[doc.selectedSprites arrangedObjects] count];
+	if (count == 0) return;
+	
+	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
+	
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects])
+	{
+		[copyObjectsArray addObject:[sprite dictionaryRepresentation]];
+//		NSLog(@"cutting sprite: %@", [sprite description]);
+	}
+
+//	Layer *layer = [[doc.layerArrayController selection] valueForKey:@"self"];
+
+//	NSMutableSet *sprites = [NSMutableSet setWithSet:[layer valueForKey:@"sprites"]];
+//	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
+//		[sprites removeObject:sprite];
+//	}
+//	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
+//	[layer setValue:sprites forKey:@"sprites"];
+
+	for (NSManagedObject *selectedSprite in [doc.selectedSprites arrangedObjects]) {
+		[selectedSprite setValue:nil forKey:@"layer"];
+		[doc.managedObjectContext deleteObject:selectedSprite];
+	}
+	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
+	[self setNeedsDisplay:YES];
+	
+	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
+	[generalPasteboard declareTypes:[NSArray arrayWithObjects:SpriteDataPboardType, NSStringPboardType, nil] owner:self];
+	NSData *copyData = [NSKeyedArchiver archivedDataWithRootObject:copyObjectsArray];
+	[generalPasteboard setData:copyData forType:SpriteDataPboardType];
+	//	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+}
+
 - (IBAction) paste:(id) sender
 {
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
@@ -93,6 +131,16 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	int i = 0;
 	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
 	//selectionRect.size = NSMakeSize(0, 0);
+	CGFloat offset = 0;
+//	if( [[[NSApplication sharedApplication] currentEvent] modifierFlags] & NSShiftKeyMask ) {
+//		offset = 0;
+//	}
+/*	UInt32 keys = GetCurrentKeyModifiers();
+	if( keys & shiftKeyBit )
+		; // shift key down
+	else
+		; // shift key not down
+	*/
 	for (NSDictionary *spriteDictionary in pastedSpritesArray)
 	{
 		//create a new Expense entity
@@ -100,8 +148,10 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 		newSprite = (Sprite *)[NSEntityDescription insertNewObjectForEntityForName:@"Sprite" inManagedObjectContext:moc];
 		// Dump the values from the dictionary into the new entity
 		[newSprite setValuesForKeysWithDictionary:spriteDictionary];
-		newSprite.x = [NSNumber numberWithFloat:[newSprite.x floatValue]+20];
-		newSprite.y = [NSNumber numberWithFloat:[newSprite.y floatValue]+20];		
+		[newSprite setValue:selectedLayer forKey:@"layer"];
+		[newSprite setValue:[doc.textureAtlasArrayController.selection valueForKey:@"self"] forKey:@"textureAtlas"];
+		newSprite.x = [NSNumber numberWithFloat:[newSprite.x floatValue]+offset];
+		newSprite.y = [NSNumber numberWithFloat:[newSprite.y floatValue]+offset];		
 		NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
 		[sprites addObject:newSprite];
 		[doc.selectedSprites addObject:newSprite];
@@ -279,7 +329,10 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	for (Layer *layer in [layers reverseObjectEnumerator] ) {
 		float alpha = [layer.opacity floatValue]/255.0f;
 		if ([layer.visibleInEditor boolValue]==NO) continue;
-		NSSet *sprites = layer.sprites;
+		NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"zIndex" ascending:YES] autorelease];
+		NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
+		NSArray *sprites = [[layer.sprites allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+		
 		Texture *sdef = nil;
 		NSRect sourceRect;
 		//	NSImage *sourceImg = [Model sharedInstance].currentSpriteDefinition.img;

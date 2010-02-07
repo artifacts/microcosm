@@ -58,6 +58,8 @@
 						  @"opacity",
 						  @"tintColor",
 						  @"tintEnabled",
+						  @"zIndex",
+						  @"properties",						  
 //						  @"animationSequence",
 						  nil];
 	}

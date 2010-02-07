@@ -134,7 +134,9 @@
 		case kEditModeMoveAndDrag:
 			selectedSprite = [self spriteAtPosition:mouseDownLocation];
 			if (selectedSprite && (selectionRect.size.width==0 && selectionRect.size.height==0)) {			
-				[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
+				if (!([theEvent modifierFlags] & NSCommandKeyMask) && [[doc.selectedSprites arrangedObjects] count]<2) {
+					[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
+				}
 				[doc.selectedSprites addObject:selectedSprite];
 			}
 			break;
@@ -173,30 +175,6 @@
 		}			
 	}
 	
-/*	
-	if (s!=nil && ![[doc.selectedSprites arrangedObjects] containsObject:s]) {
-		[doc.selectedSprites addObject:s];
-	} else {
-		[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
-	}
-
-	if ([[doc.selectedSprites arrangedObjects] count]>0) {
-		[[NSCursor closedHandCursor] push];
-		if (selectionRect.size.width==0 || selectionRect.size.height==0) {
-			[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
-		}
-//		if (![doc.selectedSprites containsObject:doc.selectedSprite]) {
-//			[doc.selectedSprites removeAllObjects];
-//			selectionRect.size = NSMakeSize(0, 0);			
-//		}		
-		int count = 0;
-	} else {
-		selectionRect.origin = mouseDownLocation;
-		selectionRect.size = NSMakeSize(0, 0);
-		[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
-	}
- 
- */
 	// save distance from mouse pointer to selected sprites
 	int count=0;
 	for (Sprite *s in [doc.selectedSprites arrangedObjects]) {
@@ -240,6 +218,9 @@
 							selectionRect.size = NSMakeSize(width, height);
 							[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
 							[doc.selectedSprites addObjects:[self spritesInRect:selectionRect]];
+//							[self scrollPoint:currentMouseLocation];
+							[self autoscroll:theEvent];
+
 						} else {							
 							// move selection rectangle
 							NSPoint newRectLocation = currentMouseLocation;
@@ -273,6 +254,15 @@
 				}
 				NSMenu *theMenu = [[[NSMenu alloc] initWithTitle:@"Edit Sprite"] autorelease];
 				[theMenu insertItemWithTitle:@"Delete" action:@selector(deleteSprite:) keyEquivalent:@"" atIndex:0];	
+				[theMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
+				[theMenu insertItemWithTitle:@"Send forward" action:@selector(sendSpriteForward:) keyEquivalent:@"" atIndex:2];	
+				[theMenu insertItemWithTitle:@"Send backward" action:@selector(sendSpriteBackward:) keyEquivalent:@"" atIndex:3];	
+				[theMenu insertItem:[NSMenuItem separatorItem] atIndex:4];
+				[theMenu insertItemWithTitle:@"Reset zIndex" action:@selector(resetSpriteZIndex:) keyEquivalent:@"" atIndex:5];	
+				[theMenu insertItem:[NSMenuItem separatorItem] atIndex:6];
+				[theMenu insertItemWithTitle:@"Send to front" action:@selector(bringSpriteToFront:) keyEquivalent:@"" atIndex:7];	
+				[theMenu insertItemWithTitle:@"Send to back" action:@selector(sendSpriteToBack:) keyEquivalent:@"" atIndex:8];	
+				
 				[NSMenu popUpContextMenu:theMenu withEvent:theEvent forView:self];
 				keepOn = NO;
 				break;
@@ -287,25 +277,134 @@
     return;
 }
 
+- (NSInteger)highestZIndex {
+	NSArray *sprites = [self spritesSortedByZIndex:NO];
+	NSNumber *maxZIndex = [[sprites objectAtIndex:0] valueForKey:@"zIndex"];
+	NSLog(@"highest zIndex: %@", maxZIndex);
+	return [maxZIndex integerValue];
+	
+	/*		
+	// Create fetch
+	NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+	[fetch setEntity:[NSEntityDescription entityForName:@"Sprite" inManagedObjectContext:doc.managedObjectContext]];
+	[fetch setResultType:NSManagedObjectResultType];
+	
+	// Expression for Max ID
+	NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"zIndex"];
+	NSExpression *maxExpression = [NSExpression expressionForFunction:@"max:" arguments: [NSArray arrayWithObject:keyPathExpression]];
+	NSPredicate * predicate = [NSCompoundPredicate
+							   andPredicateWithSubpredicates:[NSArray arrayWithObject: maxExpression]];
+	[fetch setPredicate:[maxExpression predicate]];
+*/
+	/*	
+	NSExpressionDescription *expressionDescription = [[NSExpressionDescription alloc] init];
+	[expressionDescription setName:@"maxZIndex"];
+	[expressionDescription setExpression:maxExpression];
+	[expressionDescription setExpressionResultType:NSIntegerAttributeType];
+	[fetch setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+	*/
+	// Execute the fetch.
+/*	NSInteger theMaxZIndex = 0;
+	NSError *error = nil;
+	NSArray *objects = nil;
+	objects = [doc.managedObjectContext executeFetchRequest:fetch error:&error];
+	
+	if (objects && ([objects count] > 0)) {
+		theMaxZIndex = [((NSNumber *)[[objects objectAtIndex:0] valueForKey:@"maxZIndex"]) integerValue];
+	}
+	*/	
+}
+
+- (NSArray*)spritesSortedByZIndex:(BOOL)ascending {
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	if ([[doc.spriteArrayController arrangedObjects] count]==0) return 0;
+	
+	NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"zIndex" ascending:ascending] autorelease];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];	
+	[doc.spriteArrayController setSortDescriptors:sortDescriptors];	
+	NSArray *result = [doc.spriteArrayController arrangedObjects];
+	[doc.spriteArrayController setSortDescriptors:nil];
+	[sortDescriptors release];
+	return result;
+}
+
+- (NSInteger)lowestZIndex {
+	NSArray *sprites = [self spritesSortedByZIndex:YES];
+	NSNumber *minZIndex = [[sprites objectAtIndex:0] valueForKey:@"zIndex"];
+	NSLog(@"lowest zIndex: %@", minZIndex);
+	return [minZIndex integerValue];
+}
+
+- (void)sendSpriteForward:(id)sender {
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
+		NSInteger currentZIndex = [[sprite valueForKey:@"zIndex"] integerValue];		
+		currentZIndex++;
+		[sprite setValue:[NSNumber numberWithInteger:currentZIndex] forKey:@"zIndex"];
+		NSLog(@"sprite: %@", [sprite valueForKey:@"zIndex"]);
+	}
+	[self setNeedsDisplay:YES];
+}
+
+- (void)sendSpriteBackward:(id)sender {
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
+		NSInteger currentZIndex = [[sprite valueForKey:@"zIndex"] integerValue];
+		currentZIndex--;
+		[sprite setValue:[NSNumber numberWithInteger:currentZIndex] forKey:@"zIndex"];
+	}
+	[self setNeedsDisplay:YES];
+}
+
+- (void)bringSpriteToFront:(id)sender {
+	NSInteger z = [self highestZIndex]; z++;
+	[self setSelectedSpritesZIndex:z];
+}
+
+- (void)sendSpriteToBack:(id)sender {
+	NSInteger z = [self lowestZIndex]; z--;	
+	[self setSelectedSpritesZIndex:z];
+}
+
+- (void)resetSpriteZIndex:(id)sender {
+	[self setSelectedSpritesZIndex:0];
+}
+
+- (void)setSelectedSpritesZIndex:(int)zIndex {
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
+		[sprite setValue:[NSNumber numberWithInteger:zIndex] forKey:@"zIndex"];
+	}
+	[self setNeedsDisplay:YES];
+}
+
 - (void)updateSprites:(NSArray*)sprites position:(NSPoint)position mouseOffsets:(CGPoint[])mouseOffsets {
 	int count=0;
 	NSPoint newLocation;
-	NSSize grid = NSMakeSize([gridSize floatValue], [gridSize floatValue]);
+	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
+	if ([doc.game.showGridInEditor boolValue]==YES) {
+		NSSize grid = NSMakeSize([gridSize floatValue], [gridSize floatValue]);
+		CGFloat xSnappedToGrid = ((int)position.x/(int)grid.width) * (int)grid.width;
+		CGFloat ySnappedToGrid = ((int)position.y/(int)grid.height) * (int)grid.height;	
+		position.x = xSnappedToGrid;
+		position.y = ySnappedToGrid;
+	}
+	
 	for (Sprite *s in sprites) {
 		newLocation = position;
 		newLocation.x -= mouseOffsets[count].x;
 		newLocation.y -= mouseOffsets[count].y;
 		
-		newLocation.x = (int)(newLocation.x - ((int)newLocation.x) % (int)grid.width);
-		newLocation.y = (int)(newLocation.y - ((int)newLocation.y) % (int)grid.height);						
+//		newLocation.x = (int)(newLocation.x - ((int)newLocation.x) % (int)grid.width);
+//		newLocation.y = (int)(newLocation.y - ((int)newLocation.y) % (int)grid.height);						
 		
-		CGFloat xSnappedToGrid = ((int)s.location.x/(int)grid.width) * (int)grid.width;
-		CGFloat ySnappedToGrid = ((int)s.location.y/(int)grid.height) * (int)grid.height;
-		NSPoint spriteToGridOffset = NSMakePoint(s.location.x - xSnappedToGrid,
-												 s.location.y - ySnappedToGrid);
+//		CGFloat xSnappedToGrid = ((int)s.location.x/(int)grid.width) * (int)grid.width;
+//		CGFloat ySnappedToGrid = ((int)s.location.y/(int)grid.height) * (int)grid.height;
+//		NSPoint spriteToGridOffset = NSMakePoint(s.location.x - xSnappedToGrid,
+//												 s.location.y - ySnappedToGrid);
 		
-		newLocation.x += spriteToGridOffset.x;
-		newLocation.y += spriteToGridOffset.y;
+//		newLocation.x += spriteToGridOffset.x;
+//		newLocation.y += spriteToGridOffset.y;
 		s.location = newLocation;
 		count++;
 	}		

@@ -19,5 +19,7 @@
 - (IBAction)toggleShowGrid:(id)sender;
 - (IBAction)spriteImpactValueChanged:(id)sender;
 - (void)updateSprites:(NSArray*)sprites position:(NSPoint)newLocation mouseOffsets:(CGPoint[])mouseOffsets;
+- (NSArray*)spritesSortedByZIndex:(BOOL)ascending;
+- (void)setSelectedSpritesZIndex:(int)zIndex;
 
 @end
