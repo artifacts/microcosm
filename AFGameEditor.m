@@ -297,6 +297,28 @@
 	[helper renumberViewPositions];	
 }
 
+- (IBAction)addNewSpriteSheet:(id)sender {
+	TextureAtlas *newTextureAtlas = [NSEntityDescription insertNewObjectForEntityForName:@"TextureAtlas" 
+																  inManagedObjectContext:[self managedObjectContext]];
+	newTextureAtlas.name = @"New SpriteSheet";
+	newTextureAtlas.game = game;
+//	NSMutableSet *gameSpriteSheets = [self.game valueForKey:@"textureAtlases"];
+//	[gameSpriteSheets addObject:newTextureAtlas];
+//	[self.game setValue:gameSpriteSheets forKey:@"textureAtlases"];
+}
+
+- (IBAction)removeSelectedSpriteSheets:(id)sender
+{
+	NSArray *selectedTextureAtlases = [textureAtlasArrayController selectedObjects];	
+	int count;
+	for( count = 0; count < [selectedTextureAtlases count]; count ++ )
+	{
+		NSManagedObject *currentObject = [selectedTextureAtlases objectAtIndex:count];		
+		[[self managedObjectContext] deleteObject:currentObject];		
+	}
+}
+
+
 - (NSArray *)sortDescriptors {
 	if( _sortDescriptors == nil ) {
 		_sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"viewPosition" ascending:YES]];

@@ -15,12 +15,14 @@
 		050E8CF411102B0E00162A44 /* TextureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8CF311102B0E00162A44 /* TextureController.m */; };
 		050E8E421110AABC00162A44 /* TextureController+Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8E411110AABC00162A44 /* TextureController+Browser.m */; };
 		050E8F261110F59300162A44 /* EditModeAwareCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8F251110F59300162A44 /* EditModeAwareCursor.m */; };
-		0519AF9C111D8648002FF48E /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0519AF9B111D8648002FF48E /* Game.xcdatamodeld */; };
-		0519B1EB111EEB13002FF48E /* Game0.1-0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0519B1EA111EEB13002FF48E /* Game0.1-0.2.xcmappingmodel */; };
+		0519B580111FF61C002FF48E /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0519B57C111FF61C002FF48E /* Game.xcdatamodeld */; };
 		05310930110F528E00DEB1DF /* btDraw.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092E110F528E00DEB1DF /* btDraw.png */; };
 		05310931110F528E00DEB1DF /* btMoveAndDrag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092F110F528E00DEB1DF /* btMoveAndDrag.png */; };
 		05310948110F5FF300DEB1DF /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05310947110F5FF300DEB1DF /* LevelViewController.m */; };
 		05310972110F95CF00DEB1DF /* btSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 05310971110F95CF00DEB1DF /* btSelect.png */; };
+		053E3E081124C0D300640048 /* Game0.4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */; };
+		053E46701126F81D00640048 /* TagValueToTagObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */; };
+		053E46961126FC7F00640048 /* Game0.5.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */; };
 		0541D0DD10BA25010044DE1D /* LevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0541D0DC10BA25010044DE1D /* LevelView.m */; };
 		0572206010C3101D00404A16 /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572205F10C3101D00404A16 /* Layer.m */; };
 		0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */; };
@@ -81,13 +83,20 @@
 		050E8E411110AABC00162A44 /* TextureController+Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextureController+Browser.m"; sourceTree = "<group>"; };
 		050E8F241110F59300162A44 /* EditModeAwareCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditModeAwareCursor.h; sourceTree = "<group>"; };
 		050E8F251110F59300162A44 /* EditModeAwareCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditModeAwareCursor.m; sourceTree = "<group>"; };
-		0519AF9D111D8648002FF48E /* Game0.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game0.2.xcdatamodel; sourceTree = "<group>"; };
-		0519B1EA111EEB13002FF48E /* Game0.1-0.2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = "Game0.1-0.2.xcmappingmodel"; sourceTree = "<group>"; };
+		0519B57D111FF61C002FF48E /* Game0.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.1.xcdatamodel; sourceTree = "<group>"; };
+		0519B57E111FF61C002FF48E /* Game0.2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.2.xcdatamodel; sourceTree = "<group>"; };
+		0519B57F111FF61C002FF48E /* Game0.3.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.3.xcdatamodel; sourceTree = "<group>"; };
 		0531092E110F528E00DEB1DF /* btDraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btDraw.png; path = Resources/btDraw.png; sourceTree = "<group>"; };
 		0531092F110F528E00DEB1DF /* btMoveAndDrag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btMoveAndDrag.png; path = Resources/btMoveAndDrag.png; sourceTree = "<group>"; };
 		05310946110F5FF300DEB1DF /* LevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelViewController.h; sourceTree = "<group>"; };
 		05310947110F5FF300DEB1DF /* LevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelViewController.m; sourceTree = "<group>"; };
 		05310971110F95CF00DEB1DF /* btSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btSelect.png; path = Resources/btSelect.png; sourceTree = "<group>"; };
+		053E3E061124C08A00640048 /* Game0.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game0.4.xcdatamodel; sourceTree = "<group>"; };
+		053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = Game0.4.xcmappingmodel; sourceTree = "<group>"; };
+		053E462C1126EDB400640048 /* Game0.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game0.5.xcdatamodel; sourceTree = "<group>"; };
+		053E466E1126F81D00640048 /* TagValueToTagObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagValueToTagObjectTransformer.h; sourceTree = "<group>"; };
+		053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagValueToTagObjectTransformer.m; sourceTree = "<group>"; };
+		053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = Game0.5.xcmappingmodel; sourceTree = "<group>"; };
 		0541D0DB10BA25010044DE1D /* LevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelView.h; sourceTree = "<group>"; };
 		0541D0DC10BA25010044DE1D /* LevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelView.m; sourceTree = "<group>"; };
 		0541D12210BA27C30044DE1D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -136,7 +145,6 @@
 		2F7446A80DB6BCF400F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2F7446AA0DB6BCF400F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GameEditor.xib; sourceTree = "<group>"; };
 		32DBCF750370BD2300C91783 /* LevelEditor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEditor_Prefix.pch; sourceTree = "<group>"; };
-		775BDEF0067A8BF0009058FE /* Game0.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.1.xcdatamodel; sourceTree = "<group>"; };
 		7788DA0506752A1600599AAD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D15AC360486D014006FF6A4 /* LevelEditor-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "LevelEditor-Info.plist"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* LevelEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +207,8 @@
 				05F03F8010C482C700EC70FA /* NumberToColorTransformer.m */,
 				05A7A09910D6A27C001319E2 /* NSImage+Additions.h */,
 				05A7A09A10D6A27C001319E2 /* NSImage+Additions.m */,
+				053E466E1126F81D00640048 /* TagValueToTagObjectTransformer.h */,
+				053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -319,7 +329,7 @@
 		E1B74B1A0667B4A90069E3BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0519AF9B111D8648002FF48E /* Game.xcdatamodeld */,
+				0519B57C111FF61C002FF48E /* Game.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -389,7 +399,6 @@
 			files = (
 				8D15AC310486D014006FF6A4 /* AFGameEditor.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
-				0519AF9C111D8648002FF48E /* Game.xcdatamodeld in Sources */,
 				05AF3D9B10B745FD00650F15 /* TextureAtlasView.m in Sources */,
 				0541D0DD10BA25010044DE1D /* LevelView.m in Sources */,
 				05A9061310BC56F8002F616A /* Model.m in Sources */,
@@ -415,7 +424,10 @@
 				050CE204111309FD0031ED86 /* SimpleNodeData.m in Sources */,
 				050CE20711130AD50031ED86 /* SpriteType.m in Sources */,
 				050CE8D11115BABE0031ED86 /* ImageAndTextCell.m in Sources */,
-				0519B1EB111EEB13002FF48E /* Game0.1-0.2.xcmappingmodel in Sources */,
+				0519B580111FF61C002FF48E /* Game.xcdatamodeld in Sources */,
+				053E3E081124C0D300640048 /* Game0.4.xcmappingmodel in Sources */,
+				053E46701126F81D00640048 /* TagValueToTagObjectTransformer.m in Sources */,
+				053E46961126FC7F00640048 /* Game0.5.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,14 +561,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0519AF9B111D8648002FF48E /* Game.xcdatamodeld */ = {
+		0519B57C111FF61C002FF48E /* Game.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				775BDEF0067A8BF0009058FE /* Game0.1.xcdatamodel */,
-				0519AF9D111D8648002FF48E /* Game0.2.xcdatamodel */,
-				0519B1EA111EEB13002FF48E /* Game0.1-0.2.xcmappingmodel */,
+				0519B57D111FF61C002FF48E /* Game0.1.xcdatamodel */,
+				0519B57E111FF61C002FF48E /* Game0.2.xcdatamodel */,
+				0519B57F111FF61C002FF48E /* Game0.3.xcdatamodel */,
+				053E3E061124C08A00640048 /* Game0.4.xcdatamodel */,
+				053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */,
+				053E462C1126EDB400640048 /* Game0.5.xcdatamodel */,
+				053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */,
 			);
-			currentVersion = 0519AF9D111D8648002FF48E /* Game0.2.xcdatamodel */;
+			currentVersion = 053E462C1126EDB400640048 /* Game0.5.xcdatamodel */;
 			path = Game.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

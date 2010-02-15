@@ -70,5 +70,7 @@ enum {
 - (IBAction)removeSelectedLevels:(id)sender;
 - (NSArray *)sortDescriptors;
 - (NSDictionary*)texturesForAtlasNamed:(NSString*)name;
+- (IBAction)addNewSpriteSheet:(id)sender;
+- (IBAction)removeSelectedSpriteSheets:(id)sender;
 
 @end

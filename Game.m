@@ -15,6 +15,6 @@
 
 @implementation Game (CoreDataGeneratedAccessors)
 
-@dynamic showGridInEditor, levels, textureAtlases, showBoundsInEditor;
+@dynamic showGridInEditor, levels, textureAtlases, showBoundsInEditor, highscores;
 
 @end

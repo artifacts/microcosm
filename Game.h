@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSSet* levels;
 @property (nonatomic, retain) NSSet* textureAtlases;
 @property (nonatomic, retain) NSNumber * showBoundsInEditor;
+@property (nonatomic, retain) NSSet * highscores;
 
 @end
