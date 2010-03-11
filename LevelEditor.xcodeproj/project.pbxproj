@@ -104,7 +104,7 @@
 		0572205F10C3101D00404A16 /* Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layer.m; sourceTree = "<group>"; };
 		0580CAEC11076D2A0054A9CE /* ImageToPNGDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToPNGDataTransformer.h; sourceTree = "<group>"; };
 		0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToPNGDataTransformer.m; sourceTree = "<group>"; };
-		059E387C10C3406300F80D64 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = "/Users/mic/Documents/Xcode Projects/BWToolkit/BWToolkitFramework.framework"; sourceTree = "<absolute>"; };
+		059E387C10C3406300F80D64 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Additional/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		059E395D10C34C7500F80D64 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		059E395E10C34C7500F80D64 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		059EDE0F10B73717001E3DA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
@@ -120,7 +120,7 @@
 		05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlasView.m; sourceTree = "<group>"; };
 		05CBB01310BDF07D00A57EEB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		05CBB01410BDF07D00A57EEB /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
-		05CBB21210BEAF9E00A57EEB /* gridicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridicon.png; path = ../LevelEditor/Resources/gridicon.png; sourceTree = SOURCE_ROOT; };
+		05CBB21210BEAF9E00A57EEB /* gridicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridicon.png; path = Resources/gridicon.png; sourceTree = "<group>"; };
 		05F039B010C3D83000EC70FA /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		05F039B110C3D83000EC70FA /* TextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
 		05F03BD910C4057C00EC70FA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		05F03F0910C47B1C00EC70FA /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
 		05F03F7F10C482C700EC70FA /* NumberToColorTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberToColorTransformer.h; sourceTree = "<group>"; };
 		05F03F8010C482C700EC70FA /* NumberToColorTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberToColorTransformer.m; sourceTree = "<group>"; };
-		05FD1EDA10B9528500761E42 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../LevelEditor/Resources/Icon.icns; sourceTree = SOURCE_ROOT; };
+		05FD1EDA10B9528500761E42 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* AFGameEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGameEditor.m; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../BWToolkit\"",
+					"\"$(SRCROOT)/Additional\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
