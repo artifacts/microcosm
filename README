@@ -7,6 +7,11 @@ microcosm is document-based and allows you to save the game as an .sqlite file, 
 
 It allows you to import zwoptex texture files and use the sprite maps for level design.
 
+Screenshots
+===========
+
+See the project wiki for screenshots: http://wiki.github.com/artifacts/microcosm/screenshots
+
 Project status
 ==============
 The project maturity can be considered alpha with the ability to use it in non-mission-critical projects (unless you have strong nerves).
