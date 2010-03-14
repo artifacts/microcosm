@@ -11,7 +11,7 @@ Project status
 ==============
 The project maturity can be considered alpha with the ability to use it in non-mission-critical projects (unless you have strong nerves).
 When starting writing my first game, I realized that there was no editor suitable for my purpose (maybe I just googled long enough...).
-I wanted a native cocoa-based editor with all those nice features like drag&drop and a nice GUI that a mac user got used to.
+I wanted a native cocoa-based editor with all those nice features like drag&drop and a nice GUI that a mac user is used to.
 The game editor has been hacked down in a few days and the code is not exemplary (no comments, bad performance, controller and view are not stricly separated).
 It get's slow as hell when you are manage several hundred sprites and it still crashes frequently
 I'm working on making it better as time allows me to do.
@@ -40,3 +40,19 @@ Project members (contributors)
 Michael Markowski (lead development)
 Mark Zeller (development)
 Lorenz Brunke (testing and gfx)
+
+License
+=======
+Copyright 2010 Artifacts - Fine Software Development
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+   http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
