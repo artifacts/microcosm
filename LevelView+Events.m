@@ -3,11 +3,22 @@
 //  LevelEditor
 //
 //  Created by Michael Markowski on 14.12.09.
-//  Copyright 2009 Artifacts. All rights reserved.
+//  Copyright (c) 2010 Artifacts - Fine Software Development
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+
 
 #import "LevelView+Events.h"
-#import "Constants.h"
 #import "Model.h"
 #import "AFGameEditor.h"
 #import "Layer.h"
@@ -282,37 +293,6 @@
 	NSNumber *maxZIndex = [[sprites objectAtIndex:0] valueForKey:@"zIndex"];
 	NSLog(@"highest zIndex: %@", maxZIndex);
 	return [maxZIndex integerValue];
-	
-	/*		
-	// Create fetch
-	NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-	[fetch setEntity:[NSEntityDescription entityForName:@"Sprite" inManagedObjectContext:doc.managedObjectContext]];
-	[fetch setResultType:NSManagedObjectResultType];
-	
-	// Expression for Max ID
-	NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"zIndex"];
-	NSExpression *maxExpression = [NSExpression expressionForFunction:@"max:" arguments: [NSArray arrayWithObject:keyPathExpression]];
-	NSPredicate * predicate = [NSCompoundPredicate
-							   andPredicateWithSubpredicates:[NSArray arrayWithObject: maxExpression]];
-	[fetch setPredicate:[maxExpression predicate]];
-*/
-	/*	
-	NSExpressionDescription *expressionDescription = [[NSExpressionDescription alloc] init];
-	[expressionDescription setName:@"maxZIndex"];
-	[expressionDescription setExpression:maxExpression];
-	[expressionDescription setExpressionResultType:NSIntegerAttributeType];
-	[fetch setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
-	*/
-	// Execute the fetch.
-/*	NSInteger theMaxZIndex = 0;
-	NSError *error = nil;
-	NSArray *objects = nil;
-	objects = [doc.managedObjectContext executeFetchRequest:fetch error:&error];
-	
-	if (objects && ([objects count] > 0)) {
-		theMaxZIndex = [((NSNumber *)[[objects objectAtIndex:0] valueForKey:@"maxZIndex"]) integerValue];
-	}
-	*/	
 }
 
 - (NSArray*)spritesSortedByZIndex:(BOOL)ascending {
@@ -394,17 +374,6 @@
 		newLocation = position;
 		newLocation.x -= mouseOffsets[count].x;
 		newLocation.y -= mouseOffsets[count].y;
-		
-//		newLocation.x = (int)(newLocation.x - ((int)newLocation.x) % (int)grid.width);
-//		newLocation.y = (int)(newLocation.y - ((int)newLocation.y) % (int)grid.height);						
-		
-//		CGFloat xSnappedToGrid = ((int)s.location.x/(int)grid.width) * (int)grid.width;
-//		CGFloat ySnappedToGrid = ((int)s.location.y/(int)grid.height) * (int)grid.height;
-//		NSPoint spriteToGridOffset = NSMakePoint(s.location.x - xSnappedToGrid,
-//												 s.location.y - ySnappedToGrid);
-		
-//		newLocation.x += spriteToGridOffset.x;
-//		newLocation.y += spriteToGridOffset.y;
 		s.location = newLocation;
 		count++;
 	}		

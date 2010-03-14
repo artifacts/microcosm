@@ -3,8 +3,20 @@
 //  LevelEditor
 //
 //  Created by Michael Markowski on 20.11.09.
-//  Copyright Artifacts 2009 . All rights reserved.
+//  Copyright (c) 2010 Artifacts - Fine Software Development
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+
 
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
@@ -31,7 +43,6 @@ enum {
 	IBOutlet LevelView *levelView;
 	Texture *selectedTexture;
 	IBOutlet NSButton *infoButton;
-//	IBOutlet Sprite *selectedSprite;
 	NSArrayController *selectedSprites;
 	IBOutlet NSPanel *infoHUD;
 	NSArray *_sortDescriptors;
@@ -49,7 +60,6 @@ enum {
 @property (nonatomic, retain) IBOutlet NSArrayController *textureAtlasArrayController;
 @property (nonatomic, retain) Texture *selectedTexture;
 @property (nonatomic, retain) IBOutlet NSButton *infoButton;
-//@property (nonatomic, retain) IBOutlet Sprite *selectedSprite;
 @property (nonatomic, retain) IBOutlet NSArrayController *selectedSprites;
 @property (nonatomic, retain) IBOutlet NSPanel *infoHUD;
 @property (nonatomic, retain) IBOutlet NSTableView *layerTableView;

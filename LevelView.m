@@ -3,11 +3,22 @@
 //  Leveleditor
 //
 //  Created by Michael Markowski on 23.11.09.
-//  Copyright 2009 Artifacts. All rights reserved.
+//  Copyright (c) 2010 Artifacts - Fine Software Development
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+
 
 #import "LevelView.h"
-#import "Constants.h"
 #import "Model.h"
 #import "AFGameEditor.h"
 #import "Layer.h"
@@ -86,20 +97,9 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	
 	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
 	
-	for (Sprite *sprite in [doc.selectedSprites arrangedObjects])
-	{
+	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
 		[copyObjectsArray addObject:[sprite dictionaryRepresentation]];
-//		NSLog(@"cutting sprite: %@", [sprite description]);
 	}
-
-//	Layer *layer = [[doc.layerArrayController selection] valueForKey:@"self"];
-
-//	NSMutableSet *sprites = [NSMutableSet setWithSet:[layer valueForKey:@"sprites"]];
-//	for (Sprite *sprite in [doc.selectedSprites arrangedObjects]) {
-//		[sprites removeObject:sprite];
-//	}
-//	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
-//	[layer setValue:sprites forKey:@"sprites"];
 
 	for (NSManagedObject *selectedSprite in [doc.selectedSprites arrangedObjects]) {
 		[selectedSprite setValue:nil forKey:@"layer"];
@@ -112,7 +112,6 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	[generalPasteboard declareTypes:[NSArray arrayWithObjects:SpriteDataPboardType, NSStringPboardType, nil] owner:self];
 	NSData *copyData = [NSKeyedArchiver archivedDataWithRootObject:copyObjectsArray];
 	[generalPasteboard setData:copyData forType:SpriteDataPboardType];
-	//	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
 }
 
 - (IBAction) paste:(id) sender
@@ -125,25 +124,11 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 	
 	NSArray *pastedSpritesArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	NSManagedObjectContext *moc = [doc managedObjectContext];
-	//	NSArray *stringArray = [[generalPasteboard stringForType:NSStringPboardType] componentsSeparatedByString:@"\n"];
-	//	NSEntityDescription *cats = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:moc];
-	//	NSString *predString = [NSString stringWithFormat:@"%@ LIKE %%@", @"name"];
 	int i = 0;
 	[doc.selectedSprites removeObjects:[doc.selectedSprites arrangedObjects]];
-	//selectionRect.size = NSMakeSize(0, 0);
 	CGFloat offset = 0;
-//	if( [[[NSApplication sharedApplication] currentEvent] modifierFlags] & NSShiftKeyMask ) {
-//		offset = 0;
-//	}
-/*	UInt32 keys = GetCurrentKeyModifiers();
-	if( keys & shiftKeyBit )
-		; // shift key down
-	else
-		; // shift key not down
-	*/
 	for (NSDictionary *spriteDictionary in pastedSpritesArray)
 	{
-		//create a new Expense entity
 		Sprite *newSprite;
 		newSprite = (Sprite *)[NSEntityDescription insertNewObjectForEntityForName:@"Sprite" inManagedObjectContext:moc];
 		// Dump the values from the dictionary into the new entity
@@ -156,26 +141,6 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 		[sprites addObject:newSprite];
 		[doc.selectedSprites addObject:newSprite];
 		NSLog(@"pasted sprite: %@", [newSprite description]);		
-		/*		
-		 // create a fetch request to get the category whose title matches the one in the array at the current index
-		 NSFetchRequest *req = [[NSFetchRequest alloc] init];
-		 // set the entity
-		 [req setEntity:cats];
-		 // create the predicate
-		 NSPredicate *predicate = [NSPredicate predicateWithFormat:predString, [stringArray objectAtIndex:i]];
-		 // set the predicate
-		 [req setPredicate:predicate];
-		 // just in case
-		 NSError *error = nil;
-		 // execute the request
-		 NSArray *fetchResults = [moc executeFetchRequest:req error:&error];
-		 // acquire a pointer for the correct category
-		 Category *theCat = [fetchResults objectAtIndex:0];
-		 // get the expenses set from the category
-		 NSMutableSet *aSet = [theCat mutableSetValueForKey:@"expenses"];
-		 // now to add the new expense entity to the category
-		 [aSet addObject:newExpense];
-		 */ 
 		i++;
 	}
 	[self setNeedsDisplay:YES];
@@ -231,7 +196,6 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 }
 
 - (void)deleteSprite:(id)sender {
-	//	NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
 	for (NSManagedObject *selectedSprite in [doc.selectedSprites arrangedObjects]) {
 		[doc.managedObjectContext deleteObject:selectedSprite];
@@ -254,29 +218,6 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 - (Sprite*)spriteAtPosition:(NSPoint)aPoint
 {
 	AFGameEditor *doc = (AFGameEditor*)[[NSDocumentController sharedDocumentController] currentDocument];
-	//	NSManagedObjectContext *moc = [doc managedObjectContext]; 
-	
-	//	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Sprite" inManagedObjectContext:moc]; 	
-	//	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease]; 
-	//	[request setEntity:entityDescription];
-	//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-	//							  @"(layer=%@) AND (x >= %@) AND (x+width <= %@) AND (y >= %@) AND (y+height <= %@)", 
-	//							  selectedLayer, 
-	//							  [NSNumber numberWithFloat:aPoint.x], 
-	//							  [NSNumber numberWithFloat:aPoint.x], 
-	//							  [NSNumber numberWithFloat:aPoint.y], 
-	//							  [NSNumber numberWithFloat:aPoint.y]]; 
-	//	[request setPredicate:predicate];
-	
-	//	NSError *error; 
-	//	NSArray *array = [moc executeFetchRequest:request error:&error]; 
-	//	if (error || [array count] == 0) {
-	//		NSLog(@"Error getting sprite at position (%f, %f)"); //: %@", aPoint.x, aPoint.y, [error description]);
-	//		return nil;
-	//	}
-	//	return (Sprite*)[array objectAtIndex:0];
-	
-	//	for (Layer *layer in [doc.layerArrayController arrangedObjects]) {
 	if ([selectedLayer.visibleInEditor boolValue]==NO) return nil;
 	NSMutableArray *sprites = [selectedLayer valueForKey:@"sprites"];
 	Texture *sdef = nil;
@@ -284,7 +225,6 @@ static NSString *SpriteDataPboardType = @"SpriteDataPboardType";
 		sdef = [[doc allTextures] objectForKey:s.key];
 		if (NSPointInRect(aPoint, NSMakeRect(s.location.x, s.location.y, sdef.frame.size.width, sdef.frame.size.height))) return s;
 	}
-	//	}
 	return nil;
 }
 
