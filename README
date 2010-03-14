@@ -1,0 +1,42 @@
+What is microcosm?
+==================
+
+microcosm is a game editor for cocos2d. You may use it to design levels for 2D-platform games or similar.
+It is based on it's own CoreData datamodel which is indented to hold the entire game assets, levels and other data.
+microcosm is document-based and allows you to save the game as an .sqlite file, which can be loaded in your iphone projects.
+
+It allows you to import zwoptex texture files and use the sprite maps for level design.
+
+Project status
+==============
+The project maturity can be considered alpha with the ability to use it in non-mission-critical projects (unless you have strong nerves).
+When starting writing my first game, I realized that there was no editor suitable for my purpose (maybe I just googled long enough...).
+I wanted a native cocoa-based editor with all those nice features like drag&drop and a nice GUI that a mac user got used to.
+The game editor has been hacked down in a few days and the code is not exemplary (no comments, bad performance, controller and view are not stricly separated).
+It get's slow as hell when you are manage several hundred sprites and it still crashes frequently
+I'm working on making it better as time allows me to do.
+
+Games using microcosm
+=====================
+Since microcosm is a fresh project, there's only one game using it. It is a commercial contract work which isn't yet released.
+Further details will be posted when it's available.
+
+iPhone Demo-app
+===============
+
+Currently no iphone demo-app is included. If you have the time to write one, please contact me.
+
+Contribute
+==========
+I decided to give back the community what it gave to me. Shouts to riq for his excellent work on cocos2d and Robert Payne for the great zwoptex tool, which saved me a lot
+of time. Please feel free to fork the project on github. I'd be pleased about anyone who wants to contribute to the project and to help making the best available 2D editor
+for the mac.
+
+If you want to contribute, drop me a mail: m [dot] markowski [at] artifacts [dot] de
+
+Project members (contributors)
+==============================
+
+Michael Markowski (lead development)
+Mark Zeller (development)
+Lorenz Brunke (testing and gfx)

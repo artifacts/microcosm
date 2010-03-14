@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		050CE18A111302500031ED86 /* SpriteTypeTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE189111302500031ED86 /* SpriteTypeTreeView.m */; };
+		050CE1AB111304800031ED86 /* TextureController+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE1AA111304800031ED86 /* TextureController+Tree.m */; };
+		050CE20711130AD50031ED86 /* SpriteType.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE20611130AD50031ED86 /* SpriteType.m */; };
+		050CE8D11115BABE0031ED86 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */; };
+		050E8CF411102B0E00162A44 /* TextureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8CF311102B0E00162A44 /* TextureController.m */; };
+		050E8E421110AABC00162A44 /* TextureController+Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E8E411110AABC00162A44 /* TextureController+Browser.m */; };
+		0519B580111FF61C002FF48E /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0519B57C111FF61C002FF48E /* Game.xcdatamodeld */; };
+		05310930110F528E00DEB1DF /* btDraw.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092E110F528E00DEB1DF /* btDraw.png */; };
+		05310931110F528E00DEB1DF /* btMoveAndDrag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531092F110F528E00DEB1DF /* btMoveAndDrag.png */; };
+		05310948110F5FF300DEB1DF /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05310947110F5FF300DEB1DF /* LevelViewController.m */; };
+		05310972110F95CF00DEB1DF /* btSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 05310971110F95CF00DEB1DF /* btSelect.png */; };
+		053E3E081124C0D300640048 /* Game0.4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */; };
+		053E46701126F81D00640048 /* TagValueToTagObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */; };
+		053E46961126FC7F00640048 /* Game0.5.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */; };
+		0541D0DD10BA25010044DE1D /* LevelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0541D0DC10BA25010044DE1D /* LevelView.m */; };
+		0572206010C3101D00404A16 /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572205F10C3101D00404A16 /* Layer.m */; };
+		0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */; };
+		0581C12B1145366C0073B048 /* gridicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0581C1291145366C0073B048 /* gridicon.png */; };
+		0581C12C1145366C0073B048 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0581C12A1145366C0073B048 /* Icon.icns */; };
+		059E387D10C3406300F80D64 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
+		059E389010C3409A00F80D64 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
+		059E395F10C34C7500F80D64 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 059E395E10C34C7500F80D64 /* Level.m */; };
+		059EDE1010B73717001E3DA8 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059EDE0F10B73717001E3DA8 /* Quartz.framework */; };
+		05A7A09B10D6A27C001319E2 /* NSImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7A09A10D6A27C001319E2 /* NSImage+Additions.m */; };
+		05A7A0D010D6A642001319E2 /* LevelView+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7A0CF10D6A642001319E2 /* LevelView+Events.m */; };
+		05A9061310BC56F8002F616A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A9061210BC56F8002F616A /* Model.m */; };
+		05A9061610BC6615002F616A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A9061510BC6615002F616A /* Sprite.m */; };
+		05AF3D9B10B745FD00650F15 /* TextureAtlasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */; };
+		05CBB01510BDF07D00A57EEB /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CBB01410BDF07D00A57EEB /* Texture.m */; };
+		05F039B210C3D83000EC70FA /* TextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F039B110C3D83000EC70FA /* TextureAtlas.m */; };
+		05F03BDB10C4057C00EC70FA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03BDA10C4057C00EC70FA /* CoreDataHelper.m */; };
+		05F03DAD10C4486900EC70FA /* AFGameEditor+LayerManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03DAC10C4486900EC70FA /* AFGameEditor+LayerManagement.m */; };
+		05F03EE910C46F3B00EC70FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03EE810C46F3B00EC70FA /* Game.m */; };
+		05F03F0A10C47B1C00EC70FA /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03F0910C47B1C00EC70FA /* NSColor+Hex.m */; };
+		05F03F8110C482C700EC70FA /* NumberToColorTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03F8010C482C700EC70FA /* NumberToColorTransformer.m */; };
+		2F7446AB0DB6BCF400F9684A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446A70DB6BCF400F9684A /* MainMenu.xib */; };
+		2F7446AC0DB6BCF400F9684A /* GameEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446A90DB6BCF400F9684A /* GameEditor.xib */; };
+		775DFF38067A968500C5B868 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC310486D014006FF6A4 /* AFGameEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* AFGameEditor.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		059E388910C3409100F80D64 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				059E389010C3409A00F80D64 /* BWToolkitFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		050CE188111302500031ED86 /* SpriteTypeTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteTypeTreeView.h; sourceTree = "<group>"; };
+		050CE189111302500031ED86 /* SpriteTypeTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteTypeTreeView.m; sourceTree = "<group>"; };
+		050CE1A9111304800031ED86 /* TextureController+Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextureController+Tree.h"; sourceTree = "<group>"; };
+		050CE1AA111304800031ED86 /* TextureController+Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextureController+Tree.m"; sourceTree = "<group>"; };
+		050CE20511130AD50031ED86 /* SpriteType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteType.h; sourceTree = "<group>"; };
+		050CE20611130AD50031ED86 /* SpriteType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteType.m; sourceTree = "<group>"; };
+		050CE8CF1115BABE0031ED86 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		050E8CF211102B0E00162A44 /* TextureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureController.h; sourceTree = "<group>"; };
+		050E8CF311102B0E00162A44 /* TextureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureController.m; sourceTree = "<group>"; };
+		050E8E401110AABC00162A44 /* TextureController+Browser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextureController+Browser.h"; sourceTree = "<group>"; };
+		050E8E411110AABC00162A44 /* TextureController+Browser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TextureController+Browser.m"; sourceTree = "<group>"; };
+		0519B57D111FF61C002FF48E /* Game0.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.1.xcdatamodel; sourceTree = "<group>"; };
+		0519B57E111FF61C002FF48E /* Game0.2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.2.xcdatamodel; sourceTree = "<group>"; };
+		0519B57F111FF61C002FF48E /* Game0.3.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Game0.3.xcdatamodel; sourceTree = "<group>"; };
+		0531092E110F528E00DEB1DF /* btDraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btDraw.png; path = Resources/btDraw.png; sourceTree = "<group>"; };
+		0531092F110F528E00DEB1DF /* btMoveAndDrag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btMoveAndDrag.png; path = Resources/btMoveAndDrag.png; sourceTree = "<group>"; };
+		05310946110F5FF300DEB1DF /* LevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelViewController.h; sourceTree = "<group>"; };
+		05310947110F5FF300DEB1DF /* LevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelViewController.m; sourceTree = "<group>"; };
+		05310971110F95CF00DEB1DF /* btSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btSelect.png; path = Resources/btSelect.png; sourceTree = "<group>"; };
+		053E3E061124C08A00640048 /* Game0.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game0.4.xcdatamodel; sourceTree = "<group>"; };
+		053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = Game0.4.xcmappingmodel; sourceTree = "<group>"; };
+		053E462C1126EDB400640048 /* Game0.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game0.5.xcdatamodel; sourceTree = "<group>"; };
+		053E466E1126F81D00640048 /* TagValueToTagObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagValueToTagObjectTransformer.h; sourceTree = "<group>"; };
+		053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagValueToTagObjectTransformer.m; sourceTree = "<group>"; };
+		053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = Game0.5.xcmappingmodel; sourceTree = "<group>"; };
+		0541D0DB10BA25010044DE1D /* LevelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelView.h; sourceTree = "<group>"; };
+		0541D0DC10BA25010044DE1D /* LevelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelView.m; sourceTree = "<group>"; };
+		0572205E10C3101D00404A16 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
+		0572205F10C3101D00404A16 /* Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layer.m; sourceTree = "<group>"; };
+		0580CAEC11076D2A0054A9CE /* ImageToPNGDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToPNGDataTransformer.h; sourceTree = "<group>"; };
+		0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToPNGDataTransformer.m; sourceTree = "<group>"; };
+		0581C1291145366C0073B048 /* gridicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridicon.png; path = Resources/gridicon.png; sourceTree = "<group>"; };
+		0581C12A1145366C0073B048 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
+		059E387C10C3406300F80D64 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = "/Users/mic/Documents/Xcode Projects/BWToolkit/BWToolkitFramework.framework"; sourceTree = "<absolute>"; };
+		059E395D10C34C7500F80D64 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		059E395E10C34C7500F80D64 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		059EDE0F10B73717001E3DA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		05A7A09910D6A27C001319E2 /* NSImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Additions.h"; sourceTree = "<group>"; };
+		05A7A09A10D6A27C001319E2 /* NSImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Additions.m"; sourceTree = "<group>"; };
+		05A7A0CE10D6A642001319E2 /* LevelView+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LevelView+Events.h"; sourceTree = "<group>"; };
+		05A7A0CF10D6A642001319E2 /* LevelView+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LevelView+Events.m"; sourceTree = "<group>"; };
+		05A9061110BC56F8002F616A /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		05A9061210BC56F8002F616A /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		05A9061410BC6615002F616A /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		05A9061510BC6615002F616A /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		05AF3D9910B745FD00650F15 /* TextureAtlasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasView.h; sourceTree = "<group>"; };
+		05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlasView.m; sourceTree = "<group>"; };
+		05CBB01310BDF07D00A57EEB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		05CBB01410BDF07D00A57EEB /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
+		05F039B010C3D83000EC70FA /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
+		05F039B110C3D83000EC70FA /* TextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
+		05F03BD910C4057C00EC70FA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		05F03BDA10C4057C00EC70FA /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		05F03DAB10C4486900EC70FA /* AFGameEditor+LayerManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFGameEditor+LayerManagement.h"; sourceTree = "<group>"; };
+		05F03DAC10C4486900EC70FA /* AFGameEditor+LayerManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFGameEditor+LayerManagement.m"; sourceTree = "<group>"; };
+		05F03EE710C46F3B00EC70FA /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		05F03EE810C46F3B00EC70FA /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		05F03F0810C47B1C00EC70FA /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
+		05F03F0910C47B1C00EC70FA /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
+		05F03F7F10C482C700EC70FA /* NumberToColorTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberToColorTransformer.h; sourceTree = "<group>"; };
+		05F03F8010C482C700EC70FA /* NumberToColorTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberToColorTransformer.m; sourceTree = "<group>"; };
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2A37F4ACFDCFA73011CA2CEA /* AFGameEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGameEditor.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* AFGameEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGameEditor.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2F7446A80DB6BCF400F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2F7446AA0DB6BCF400F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GameEditor.xib; sourceTree = "<group>"; };
+		32DBCF750370BD2300C91783 /* microcosm_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = microcosm_Prefix.pch; sourceTree = "<group>"; };
+		7788DA0506752A1600599AAD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		8D15AC360486D014006FF6A4 /* microcosm-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "microcosm-Info.plist"; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* LevelEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775DFF38067A968500C5B868 /* Cocoa.framework in Frameworks */,
+				059EDE1010B73717001E3DA8 /* Quartz.framework in Frameworks */,
+				059E387D10C3406300F80D64 /* BWToolkitFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05310944110F5FB300DEB1DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05AF3D9910B745FD00650F15 /* TextureAtlasView.h */,
+				05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */,
+				050CE8CF1115BABE0031ED86 /* ImageAndTextCell.h */,
+				050CE8D01115BABE0031ED86 /* ImageAndTextCell.m */,
+				0541D0DB10BA25010044DE1D /* LevelView.h */,
+				0541D0DC10BA25010044DE1D /* LevelView.m */,
+				05A7A0CE10D6A642001319E2 /* LevelView+Events.h */,
+				05A7A0CF10D6A642001319E2 /* LevelView+Events.m */,
+				050CE188111302500031ED86 /* SpriteTypeTreeView.h */,
+				050CE189111302500031ED86 /* SpriteTypeTreeView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		05310945110F5FBC00DEB1DF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05310946110F5FF300DEB1DF /* LevelViewController.h */,
+				05310947110F5FF300DEB1DF /* LevelViewController.m */,
+				050E8CF211102B0E00162A44 /* TextureController.h */,
+				050E8CF311102B0E00162A44 /* TextureController.m */,
+				050E8E401110AABC00162A44 /* TextureController+Browser.h */,
+				050E8E411110AABC00162A44 /* TextureController+Browser.m */,
+				050CE1A9111304800031ED86 /* TextureController+Tree.h */,
+				050CE1AA111304800031ED86 /* TextureController+Tree.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		056883D3114D1E7000D5205F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05A9061110BC56F8002F616A /* Model.h */,
+				05A9061210BC56F8002F616A /* Model.m */,
+				05A9061410BC6615002F616A /* Sprite.h */,
+				05A9061510BC6615002F616A /* Sprite.m */,
+				05CBB01310BDF07D00A57EEB /* Texture.h */,
+				05CBB01410BDF07D00A57EEB /* Texture.m */,
+				0572205E10C3101D00404A16 /* Layer.h */,
+				0572205F10C3101D00404A16 /* Layer.m */,
+				059E395D10C34C7500F80D64 /* Level.h */,
+				059E395E10C34C7500F80D64 /* Level.m */,
+				05F039B010C3D83000EC70FA /* TextureAtlas.h */,
+				05F039B110C3D83000EC70FA /* TextureAtlas.m */,
+				05F03EE710C46F3B00EC70FA /* Game.h */,
+				05F03EE810C46F3B00EC70FA /* Game.m */,
+				050CE20511130AD50031ED86 /* SpriteType.h */,
+				050CE20611130AD50031ED86 /* SpriteType.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		05F03F0710C47B0900EC70FA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				05F03BD910C4057C00EC70FA /* CoreDataHelper.h */,
+				05F03BDA10C4057C00EC70FA /* CoreDataHelper.m */,
+				0580CAEC11076D2A0054A9CE /* ImageToPNGDataTransformer.h */,
+				0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */,
+				05F03F0810C47B1C00EC70FA /* NSColor+Hex.h */,
+				05F03F0910C47B1C00EC70FA /* NSColor+Hex.m */,
+				05F03F7F10C482C700EC70FA /* NumberToColorTransformer.h */,
+				05F03F8010C482C700EC70FA /* NumberToColorTransformer.m */,
+				05A7A09910D6A27C001319E2 /* NSImage+Additions.h */,
+				05A7A09A10D6A27C001319E2 /* NSImage+Additions.m */,
+				053E466E1126F81D00640048 /* TagValueToTagObjectTransformer.h */,
+				053E466F1126F81D00640048 /* TagValueToTagObjectTransformer.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+				059E387C10C3406300F80D64 /* BWToolkitFramework.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+				7788DA0506752A1600599AAD /* CoreData.framework */,
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				059EDE0F10B73717001E3DA8 /* Quartz.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* LevelEditor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* LevelEditor */ = {
+			isa = PBXGroup;
+			children = (
+				E1B74B1A0667B4A90069E3BA /* Models */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = LevelEditor;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				056883D3114D1E7000D5205F /* Model */,
+				05310945110F5FBC00DEB1DF /* Controller */,
+				05310944110F5FB300DEB1DF /* View */,
+				05F03F0710C47B0900EC70FA /* Util */,
+				2A37F4AEFDCFA73011CA2CEA /* AFGameEditor.h */,
+				2A37F4ACFDCFA73011CA2CEA /* AFGameEditor.m */,
+				05F03DAB10C4486900EC70FA /* AFGameEditor+LayerManagement.h */,
+				05F03DAC10C4486900EC70FA /* AFGameEditor+LayerManagement.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF750370BD2300C91783 /* microcosm_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0581C1291145366C0073B048 /* gridicon.png */,
+				0581C12A1145366C0073B048 /* Icon.icns */,
+				05310971110F95CF00DEB1DF /* btSelect.png */,
+				0531092E110F528E00DEB1DF /* btDraw.png */,
+				0531092F110F528E00DEB1DF /* btMoveAndDrag.png */,
+				2F7446A70DB6BCF400F9684A /* MainMenu.xib */,
+				2F7446A90DB6BCF400F9684A /* GameEditor.xib */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				8D15AC360486D014006FF6A4 /* microcosm-Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1B74B1A0667B4A90069E3BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0519B57C111FF61C002FF48E /* Game.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* prefix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "prefix" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+				059E388910C3409100F80D64 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = prefix;
+			productInstallPath = "$(HOME)/Applications";
+			productName = LevelEditor;
+			productReference = 8D15AC370486D014006FF6A4 /* LevelEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 26FC0AA90875C8B900E6366F /* Build configuration list for PBXProject "microcosm" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* LevelEditor */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* prefix */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				2F7446AB0DB6BCF400F9684A /* MainMenu.xib in Resources */,
+				2F7446AC0DB6BCF400F9684A /* GameEditor.xib in Resources */,
+				05310930110F528E00DEB1DF /* btDraw.png in Resources */,
+				05310931110F528E00DEB1DF /* btMoveAndDrag.png in Resources */,
+				05310972110F95CF00DEB1DF /* btSelect.png in Resources */,
+				0581C12B1145366C0073B048 /* gridicon.png in Resources */,
+				0581C12C1145366C0073B048 /* Icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC310486D014006FF6A4 /* AFGameEditor.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				05AF3D9B10B745FD00650F15 /* TextureAtlasView.m in Sources */,
+				0541D0DD10BA25010044DE1D /* LevelView.m in Sources */,
+				05A9061310BC56F8002F616A /* Model.m in Sources */,
+				05A9061610BC6615002F616A /* Sprite.m in Sources */,
+				05CBB01510BDF07D00A57EEB /* Texture.m in Sources */,
+				0572206010C3101D00404A16 /* Layer.m in Sources */,
+				059E395F10C34C7500F80D64 /* Level.m in Sources */,
+				05F039B210C3D83000EC70FA /* TextureAtlas.m in Sources */,
+				05F03BDB10C4057C00EC70FA /* CoreDataHelper.m in Sources */,
+				05F03DAD10C4486900EC70FA /* AFGameEditor+LayerManagement.m in Sources */,
+				05F03EE910C46F3B00EC70FA /* Game.m in Sources */,
+				05F03F0A10C47B1C00EC70FA /* NSColor+Hex.m in Sources */,
+				05F03F8110C482C700EC70FA /* NumberToColorTransformer.m in Sources */,
+				05A7A09B10D6A27C001319E2 /* NSImage+Additions.m in Sources */,
+				05A7A0D010D6A642001319E2 /* LevelView+Events.m in Sources */,
+				0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */,
+				05310948110F5FF300DEB1DF /* LevelViewController.m in Sources */,
+				050E8CF411102B0E00162A44 /* TextureController.m in Sources */,
+				050E8E421110AABC00162A44 /* TextureController+Browser.m in Sources */,
+				050CE18A111302500031ED86 /* SpriteTypeTreeView.m in Sources */,
+				050CE1AB111304800031ED86 /* TextureController+Tree.m in Sources */,
+				050CE20711130AD50031ED86 /* SpriteType.m in Sources */,
+				050CE8D11115BABE0031ED86 /* ImageAndTextCell.m in Sources */,
+				0519B580111FF61C002FF48E /* Game.xcdatamodeld in Sources */,
+				053E3E081124C0D300640048 /* Game0.4.xcmappingmodel in Sources */,
+				053E46701126F81D00640048 /* TagValueToTagObjectTransformer.m in Sources */,
+				053E46961126FC7F00640048 /* Game0.5.xcmappingmodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		2F7446A70DB6BCF400F9684A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F7446A80DB6BCF400F9684A /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		2F7446A90DB6BCF400F9684A /* GameEditor.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F7446AA0DB6BCF400F9684A /* English */,
+			);
+			name = GameEditor.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26FC0AA60875C8B900E6366F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../BWToolkit\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = microcosm_Prefix.pch;
+				INFOPLIST_FILE = "microcosm-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = LevelEditor;
+				SDKROOT = macosx10.5;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		26FC0AA70875C8B900E6366F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../BWToolkit\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = microcosm_Prefix.pch;
+				INFOPLIST_FILE = "microcosm-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = microcosm;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		26FC0AAA0875C8B900E6366F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		26FC0AAB0875C8B900E6366F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "prefix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26FC0AA60875C8B900E6366F /* Debug */,
+				26FC0AA70875C8B900E6366F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26FC0AA90875C8B900E6366F /* Build configuration list for PBXProject "microcosm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26FC0AAA0875C8B900E6366F /* Debug */,
+				26FC0AAB0875C8B900E6366F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0519B57C111FF61C002FF48E /* Game.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0519B57D111FF61C002FF48E /* Game0.1.xcdatamodel */,
+				0519B57E111FF61C002FF48E /* Game0.2.xcdatamodel */,
+				0519B57F111FF61C002FF48E /* Game0.3.xcdatamodel */,
+				053E3E061124C08A00640048 /* Game0.4.xcdatamodel */,
+				053E3E071124C0D300640048 /* Game0.4.xcmappingmodel */,
+				053E462C1126EDB400640048 /* Game0.5.xcdatamodel */,
+				053E46951126FC7F00640048 /* Game0.5.xcmappingmodel */,
+			);
+			currentVersion = 053E462C1126EDB400640048 /* Game0.5.xcdatamodel */;
+			path = Game.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
