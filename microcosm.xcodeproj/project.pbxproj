@@ -26,8 +26,6 @@
 		0580CAEE11076D2A0054A9CE /* ImageToPNGDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */; };
 		0581C12B1145366C0073B048 /* gridicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0581C1291145366C0073B048 /* gridicon.png */; };
 		0581C12C1145366C0073B048 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0581C12A1145366C0073B048 /* Icon.icns */; };
-		059E387D10C3406300F80D64 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
-		059E389010C3409A00F80D64 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 059E387C10C3406300F80D64 /* BWToolkitFramework.framework */; };
 		059E395F10C34C7500F80D64 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 059E395E10C34C7500F80D64 /* Level.m */; };
 		059EDE1010B73717001E3DA8 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059EDE0F10B73717001E3DA8 /* Quartz.framework */; };
 		05A7A09B10D6A27C001319E2 /* NSImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7A09A10D6A27C001319E2 /* NSImage+Additions.m */; };
@@ -36,6 +34,9 @@
 		05A9061610BC6615002F616A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A9061510BC6615002F616A /* Sprite.m */; };
 		05AF3D9B10B745FD00650F15 /* TextureAtlasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */; };
 		05CBB01510BDF07D00A57EEB /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CBB01410BDF07D00A57EEB /* Texture.m */; };
+		05EF976A11942AC6000AE34D /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EF976911942AC6000AE34D /* BWToolkitFramework.framework */; };
+		05EF979D11942B09000AE34D /* BWToolkitFramework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EF979C11942B09000AE34D /* BWToolkitFramework */; };
+		05EF97BC11942C87000AE34D /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05EF976911942AC6000AE34D /* BWToolkitFramework.framework */; };
 		05F039B210C3D83000EC70FA /* TextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F039B110C3D83000EC70FA /* TextureAtlas.m */; };
 		05F03BDB10C4057C00EC70FA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03BDA10C4057C00EC70FA /* CoreDataHelper.m */; };
 		05F03DAD10C4486900EC70FA /* AFGameEditor+LayerManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F03DAC10C4486900EC70FA /* AFGameEditor+LayerManagement.m */; };
@@ -58,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				059E389010C3409A00F80D64 /* BWToolkitFramework.framework in CopyFiles */,
+				05EF97BC11942C87000AE34D /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +100,6 @@
 		0580CAED11076D2A0054A9CE /* ImageToPNGDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToPNGDataTransformer.m; sourceTree = "<group>"; };
 		0581C1291145366C0073B048 /* gridicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridicon.png; path = Resources/gridicon.png; sourceTree = "<group>"; };
 		0581C12A1145366C0073B048 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Resources/Icon.icns; sourceTree = "<group>"; };
-		059E387C10C3406300F80D64 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = "/Users/mic/Documents/Xcode Projects/BWToolkit/BWToolkitFramework.framework"; sourceTree = "<absolute>"; };
 		059E395D10C34C7500F80D64 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		059E395E10C34C7500F80D64 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		059EDE0F10B73717001E3DA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
@@ -115,6 +115,8 @@
 		05AF3D9A10B745FD00650F15 /* TextureAtlasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlasView.m; sourceTree = "<group>"; };
 		05CBB01310BDF07D00A57EEB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		05CBB01410BDF07D00A57EEB /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
+		05EF976911942AC6000AE34D /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
+		05EF979C11942B09000AE34D /* BWToolkitFramework */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = BWToolkitFramework; path = Additional/BWToolkitFramework.framework/BWToolkitFramework; sourceTree = "<group>"; };
 		05F039B010C3D83000EC70FA /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		05F039B110C3D83000EC70FA /* TextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
 		05F03BD910C4057C00EC70FA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
@@ -150,7 +152,8 @@
 			files = (
 				775DFF38067A968500C5B868 /* Cocoa.framework in Frameworks */,
 				059EDE1010B73717001E3DA8 /* Quartz.framework in Frameworks */,
-				059E387D10C3406300F80D64 /* BWToolkitFramework.framework in Frameworks */,
+				05EF976A11942AC6000AE34D /* BWToolkitFramework.framework in Frameworks */,
+				05EF979D11942B09000AE34D /* BWToolkitFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +215,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		05EF976811942AC6000AE34D /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				05EF976911942AC6000AE34D /* BWToolkitFramework.framework */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
 		05F03F0710C47B0900EC70FA /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
-				059E387C10C3406300F80D64 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -247,6 +257,7 @@
 				7788DA0506752A1600599AAD /* CoreData.framework */,
 				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
 				059EDE0F10B73717001E3DA8 /* Quartz.framework */,
+				05EF979C11942B09000AE34D /* BWToolkitFramework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* LevelEditor */ = {
 			isa = PBXGroup;
 			children = (
+				05EF976811942AC6000AE34D /* Additional */,
 				E1B74B1A0667B4A90069E3BA /* Models */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
@@ -333,9 +345,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D15AC270486D014006FF6A4 /* prefix */ = {
+		8D15AC270486D014006FF6A4 /* microcosm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "prefix" */;
+			buildConfigurationList = 26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "microcosm" */;
 			buildPhases = (
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
@@ -346,7 +358,7 @@
 			);
 			dependencies = (
 			);
-			name = prefix;
+			name = microcosm;
 			productInstallPath = "$(HOME)/Applications";
 			productName = LevelEditor;
 			productReference = 8D15AC370486D014006FF6A4 /* LevelEditor.app */;
@@ -364,7 +376,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D15AC270486D014006FF6A4 /* prefix */,
+				8D15AC270486D014006FF6A4 /* microcosm */,
 			);
 		};
 /* End PBXProject section */
@@ -494,6 +506,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../BWToolkit\"",
+					"\"$(SRCROOT)/Additional\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -534,7 +547,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "prefix" */ = {
+		26FC0AA50875C8B900E6366F /* Build configuration list for PBXNativeTarget "microcosm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26FC0AA60875C8B900E6366F /* Debug */,
